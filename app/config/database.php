@@ -58,7 +58,7 @@ return array(
 		    'database'  => isset($_SERVER['DB1_NAME']) ? $_SERVER['DB1_NAME'] : 'costing',
 		    'username'  => isset($_SERVER['DB1_USER']) ? $_SERVER['DB1_USER'] : 'costing',
 		    'password'  => isset($_SERVER['DB1_PASS']) ? $_SERVER['DB1_PASS'] : 'codeuprocks',
-			'charset'   => 'utf8',
+		    'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
 		),
