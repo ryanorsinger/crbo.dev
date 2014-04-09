@@ -11,8 +11,12 @@
 |
 */
 
-Route::get('/', 'HomeController@showLogin');
-
-Route::post('/', 'HomeController@doLogin');
+Route::get('/', 'HomeController@showHome');
 
 Route::resource('/devices', 'DevicesController');
+
+Route::get('/login', 'HomeController@showLogin');
+
+Route::post('/login', 'HomeController@doLogin');
+
+Route::get('/logout', 'HomeController@logout');

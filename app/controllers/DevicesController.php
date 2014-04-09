@@ -51,7 +51,7 @@ class DevicesController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		return View::make('devices/edit');
 	}
 
 	/**
