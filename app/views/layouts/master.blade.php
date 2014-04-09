@@ -28,7 +28,7 @@
       
       <div class="nav-collapse collapse navbar-responsive-collapse">
         <ul class="nav row">
-          <li class="col-12 col-sm-2"><a href="{{{ action('HomeController@showLogin') }}}"><span class="icon icon-home"></span> <span class="text">HOME</span></a></li>
+          <li class="col-12 col-sm-2"><a href="{{{ action('HomeController@showHome') }}}"><span class="icon icon-home"></span> <span class="text">HOME</span></a></li>
           <li class="col-12 col-sm-2"><a href=""><span class="icon icon-user"></span> <span class="text">RESUME</span></a></li>
 
           <li class="col-12 col-sm-2"><a href=""><span class="icon icon-briefcase"></span> <span class="text">PORTFOLIO</span></a></li>
