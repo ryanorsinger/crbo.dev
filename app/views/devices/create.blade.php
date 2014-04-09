@@ -90,14 +90,6 @@ css to add styling to other stuff -->
 		 </label>
 	</div>
 </div>
-<div class="well">
-	 <div class="form-group">
-    	<label for="inputEmail3" class="col-sm-2 control-label">Model</label>
- 	  	<div class="col-sm-4">
-      <input type="model" name="model" class="form-control" id="model" placeholder="model">
-    </div>
-  </div>
-</div>
 
 
 <div class="dropdown">
@@ -144,11 +136,140 @@ css to add styling to other stuff -->
 
 </div>
 <div class="col-lg-6">
-
 <h3>Checks</h3>
 	<div class="well">
-	
-	
+		<div class="form-inline">
+			<label class="network_boot" id="machine_powers_on">Machine powers on &nbsp;</label>
+			<label class="radio">
+				<input type="radio" name="machine_powers_on" value="pass"/>
+				&nbsp;Yes&nbsp;
+			</label>
+			<label class="radio">
+				<input type="radio" name="machine_powers_on" value="fail"/>
+				&nbsp;No&nbsp;
+			</label>
+		</div>
+		<div class="form-inline">
+			<label class="network_boot" id="network_boot">Network Boot &nbsp;</label>
+			<label class="radio">
+				<input type="radio" name="network_boot" value="pass"/>
+				&nbsp;Pass&nbsp;
+			</label>
+			<label class="radio">
+				<input type="radio" name="network_boot" value="fail"/>
+				&nbsp;Fail&nbsp;
+			</label>
+		</div>
+		<div class="form-inline">
+			<label class="network_boot" id="memtest">Memtest &nbsp;</label>
+			<label class="radio">
+				<input type="radio" name="memtest" value="pass"/>
+				&nbsp;Pass&nbsp;
+			</label>
+			<label class="radio">
+				<input type="radio" name="memtest" value="fail"/>
+				&nbsp;Fail&nbsp;
+			</label>
+			<label class="radio">
+				<input type="radio" name="memtest" value="no_memory"/>
+				&nbsp;No memory present&nbsp;
+			</label>
+		</div>
+		<div class="form-inline">
+			<label class="network_boot" id="hdd_test">Hard Drive Test &nbsp;</label>
+			<label class="radio">
+				<input type="radio" name="hdd_test" value="pass"/>
+				Pass&nbsp;
+			</label>
+			<label class="radio">
+				<input type="radio" name="hdd_test" value="failed"/>
+				Fail&nbsp;
+			</label>
+			<label class="radio">
+				<input type="radio" name="hdd_test" value="no_drive"/>
+				No drive present&nbsp;
+			</label>
+
+		</div>
+		<div class="form-inline">
+			<label class="network_boot" id="network_boot">Network Boot &nbsp;</label>
+			<label class="radio">
+				<input type="radio" name="network_boot" value="pass"/>
+				Pass&nbsp;
+			</label>
+			<label class="radio">
+				<input type="radio" name="network_boot" value="failed"/>
+				Fail&nbsp;
+			</label>
+		</div>
+		<div class="form-inline">
+			<label class="network_boot" id="network_boot">Network Boot &nbsp;</label>
+			<label class="radio">
+				<input type="radio" name="network_boot" value="pass"/>
+				Pass&nbsp;
+			</label>
+			<label class="radio">
+				<input type="radio" name="network_boot" value="failed"/>
+				Fail&nbsp;
+			</label>
+		</div>
+		<div class="form-inline">
+			<label class="network_boot" id="network_boot">Network Boot &nbsp;</label>
+			<label class="radio">
+				<input type="radio" name="network_boot" value="pass"/>
+				Pass&nbsp;
+			</label>
+			<label class="radio">
+				<input type="radio" name="network_boot" value="failed"/>
+				Fail&nbsp;
+			</label>
+		</div>
+		<div class="form-inline">
+			<label class="network_boot" id="network_boot">Network Boot &nbsp;</label>
+			<label class="radio">
+				<input type="radio" name="network_boot" value="pass"/>
+				Pass&nbsp;
+			</label>
+			<label class="radio">
+				<input type="radio" name="network_boot" value="failed"/>
+				Fail&nbsp;
+			</label>
+		</div>
+		<div class="form-inline">
+			<label class="network_boot" id="network_boot">Network Boot &nbsp;</label>
+			<label class="radio">
+				<input type="radio" name="network_boot" value="pass"/>
+				Pass&nbsp;
+			</label>
+			<label class="radio">
+				<input type="radio" name="network_boot" value="failed"/>
+				Fail&nbsp;
+			</label>
+		</div>
+		<div class="form-inline">
+			<label class="network_boot" id="network_boot">Network Boot &nbsp;</label>
+			<label class="radio">
+				<input type="radio" name="network_boot" value="pass"/>
+				Pass&nbsp;
+			</label>
+			<label class="radio">
+				<input type="radio" name="network_boot" value="failed"/>
+				Fail&nbsp;
+			</label>
+		</div>
+		<div class="form-inline">
+			<label class="network_boot" id="network_boot">Network Boot &nbsp;</label>
+			<label class="radio">
+				<input type="radio" name="network_boot" value="pass"/>
+				Pass&nbsp;
+			</label>
+			<label class="radio">
+				<input type="radio" name="network_boot" value="failed"/>
+				Fail&nbsp;
+			</label>
+		</div>
+	</div>
+</div>
 
 </div>
 
