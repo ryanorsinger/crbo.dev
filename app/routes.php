@@ -11,7 +11,8 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+Route::get('/', 'HomeController@showLogin');
+
+Route::post('/', 'HomeController@doLogin');
+
+Route::resource('/devices', 'DevicesController');
