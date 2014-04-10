@@ -12,20 +12,32 @@
 
 @section('content')
 <div class="container-fluid">
-	<div class="row">
-		<div class="col-md-3 col-md-offset-3">
-			<a href="{{{ action('DevicesController@create') }}}"><img src="/img/buyback.png"></a>
-		</div>
-		<div class="col-md-3">
-			<a href="{{{ action('DevicesController@index') }}}"><img src="/img/refurbish.png"></a>
-		</div>
-	</div>
-			@if (Auth::user()->role == "admin")
-			<a href="">Admin Panel</a>
-			@endif
-	<br>
-	<br>
-	<a href="{{{ action('HomeController@logout') }}}">Logout</a>
+	<table class="table table-bordered table-striped">
+		<thead>
+			<th>ID</th>
+			<th>Acquistion Type</th>
+			<th>Manufacturer</th>
+			<th>Model</th>
+			<th>Purchased By</th>
+			<th>High Price</th>
+			<th>Acquisition Cost</th>
+			<th>Acquisition Grade</th>
+			<th>Purchase Date</th>
+		</thead>
+		<tbody>
+			@foreach ($devices as $device)
+			<tr>
+				<td>{{{ $device->id }}}</td>
+				<td>{{{ $device->acquisition_type }}}</td>
+				<td>{{{ $device->manufacturer }}}</td>
+				<td>{{{ $device->model }}}</td>
+				<td>{{{ $device->purchased_by }}}</td>
+				<td>{{{ $device->high_price }}}</td>
+				<td>{{{ $device->acquisition_cost }}}</td>
+				<td>{{{ $device->acquisition_grade_abc }}}</td>
+				<td>{{{ $device->created_at->setTimezone('America/Chicago')->format('m / d') }}}</td>
+			@endforeach
+	</table>
 </div>
 
 
