@@ -15,6 +15,14 @@ Route::get('/', 'HomeController@showHome');
 
 Route::resource('/devices', 'DevicesController');
 
+Route::resource('/ram', 'RamController');
+
+Route::resource('/hdd', 'HddController');
+
+Route::resource('/cpu', 'CpuController');
+
+Route::resource('/manufacturer', 'ManufacturerController');
+
 Route::get('/login', 'HomeController@showLogin');
 
 Route::post('/login', 'HomeController@doLogin');
