@@ -22,8 +22,8 @@
 		{{ Form::open(array('action' => 'HomeController@doLogin', 'method' => 'POST')) }}
 		
 		<div class="form-group">
-			{{ Form::label('email', 'Email') }}
-			{{ Form::text('email', null, array('class' => 'form-control')) }}
+			{{ Form::label('username', 'Username') }}
+			{{ Form::text('username', null, array('class' => 'form-control')) }}
 		</div>
 		<div class="form-group">
 			{{ Form::label('password', 'Password') }}

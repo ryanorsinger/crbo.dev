@@ -15,6 +15,18 @@ class HomeController extends BaseController {
 	|
 	*/
 
+	public function showHome()
+	{
+		if (Auth::check()) 
+		{
+			return View::make('home');
+		}	
+		else 
+		{
+			return Redirect::action('HomeController@showLogin');
+		}
+	}
+
 	public function showLogin()
 	{
 		return View::make('login');
@@ -22,15 +34,15 @@ class HomeController extends BaseController {
 
 	public function doLogin()
 	{
-		if (Auth::attempt(array('email' => Input::get('email'), 'password' => Input::get('password'))))
+		if (Auth::attempt(array('username' => Input::get('username'), 'password' => Input::get('password'))))
 		{
 			// login successful
-		    return View::make('home');
+		    return Redirect::action('HomeController@showHome');
 		}
 		else
 		{
 			// login failed, go back to the login view
-			return Redirect::back()->withInput('email');
+			return Redirect::back()->withInput(Input::old('username'));
 		}
 	}
 
