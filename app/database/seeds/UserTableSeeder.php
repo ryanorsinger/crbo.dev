@@ -9,11 +9,19 @@ class UserTableSeeder extends Seeder {
 		$user = new User();
 		$user->username = "admin";
 		$user->password = Hash::make('password');
+		$user->role = "admin";
 		$user->save();
 
 		$user = new User();
-		$user->username = "tech";
+		$user->username = "buyback";
 		$user->password = Hash::make('password');
+		$user->role = "buyback";
+		$user->save();
+
+		$user = new User();
+		$user->username = "refurb";
+		$user->password = Hash::make('password');
+		$user->role = "refurb";
 		$user->save();
 	}
 }
