@@ -27,9 +27,9 @@ class DropCreatedOnDateColumnInDevicesTable extends Migration {
 	public function down()
 	{
 		Schema::table('devices', function($table)
-	{
+		{
 	    $table->dateTime('created_on_date');
-	});
+		});
 	}
 
 }

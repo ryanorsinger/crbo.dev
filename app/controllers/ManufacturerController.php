@@ -9,7 +9,23 @@ class ManufacturerController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$manufacturers = Manufacturer::all();
+		
+
+		// $search = Input::get('search');
+		// $manufacturers = Manufacturer::all();
+
+		// if (is_null($search))
+		// {
+		// 	$posts = $query->paginate(3);
+		// } else {
+		// 	$posts = $query->where('title', 'LIKE', "%{$search}%")
+		// 				   ->orWhere('body', 'LIKE', "%{$search}%")
+		// 				   ->paginate(3);
+		// }
+
+		// return View::make('posts.index')->with('posts', $posts);
+		// }
 	}
 
 	/**

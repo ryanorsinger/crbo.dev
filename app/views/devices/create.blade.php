@@ -5,7 +5,6 @@
 @stop
 
 @section('style')
-
 <!-- css to center the header
 css to add styling to other stuff -->
 @stop
@@ -13,25 +12,24 @@ css to add styling to other stuff -->
 
 @section('content')
 <div class="container">
-<h1 class="page-header">210Geeks.com &nbsp; Buy Back Procedure</h1>
+<h1 class="page-header">210Geeks.com &nbsp; Buy Back Procedure Form</h1>
 <div>
 <row>
 	{{ Form::open(array('action' => 'DevicesController@store', 'class' => 'form-inline')) }}
 <div class="col-lg-6">	
 <h2>Device Information</h2>
-<div class=well>
-	<div class="form-inline">
-		<label class="acquisition_type" id="acquisition_type">Acquisition Type &nbsp;</label>
-		<label class="radio">
-			<input type="radio" name="acquisition_type" value="refurbish"/>
-			Buy Back&nbsp;
-		</label>
-		<label class="radio">
-			<input type="radio" name="acquisition_type" value="recycle"/>
-			Recycle&nbsp;
-		 </label>
+	<div class="well">
+		<div class="form-inline">
+			<label class="acquisition_type" id="acquisition_type">Acquisition Type &nbsp;</label>
+			<label class="radio">
+				<input type="radio" name="acquisition_type" value="refurbish"/>
+				Buy Back&nbsp;
+			</label>
+			<label class="radio">
+				<input type="radio" name="acquisition_type" value="recycle"/>
+				Recycle&nbsp;
+		 	</label>
 	</div>
-
 	<div class="form-inline">
 		<label class="hardware_type" id="hardware_type">Hardware Type &nbsp;</label>
 		<label class="radio">
@@ -44,25 +42,25 @@ css to add styling to other stuff -->
 		 </label>
 	</div>
 </div>
+<div class="well" id="manufacturer">
+	<div class="form-inline">Manufacturer
 
-<div class="well">
-	<div class="form-inline">
-		<label class="acquisition_type" id="manufacturer">Manufacturer &nbsp;</label>
+		<label class="radio" id="manufacturer">&nbsp;</label>
 		<label class="radio">
 			<input type="radio" name="manufacturer" value="dell"/>
 			Dell&nbsp;
-		</label>
-		<label class="radio">
-			<input type="radio" name="manufacturer" value="acer"/>
-			Acer&nbsp;
 		</label>
 		<label class="radio">
 			<input type="radio" name="manufacturer" value="hp"/>
 			HP&nbsp;
 		</label>
 		<label class="radio">
-			<input type="radio" name="manufacturer" value="sony"/>
-			Sony&nbsp;
+			<input type="radio" name="manufacturer" value="compaq"/>
+			Compaq&nbsp;
+		</label>
+		<label class="radio">
+			<input type="radio" name="manufacturer" value="acer"/>
+			Acer&nbsp;
 		</label>
 		<label class="radio">
 			<input type="radio" name="manufacturer" value="toshiba"/>
@@ -89,6 +87,7 @@ css to add styling to other stuff -->
 			Other&nbsp;
 		 </label>
 	</div>
+</table>
 </div>
 
 
@@ -273,18 +272,18 @@ css to add styling to other stuff -->
 
 </div>
 
-<!-- <div class="col-lg-2">
-<h3>Comments</h3>
-	{{ $errors->first('title', '<p><span class="help-block">:message</span><p>') }}
-	{{ Form::label('body', 'Body') }}
-	{{ $errors->first('body', '<p><span class="help-block">:message</span><p>') }}
-</div> -->
-
-
 	<button type="submit" class="btn btn-default">Add </button>	
 	{{ Form::close() }}
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
 
 
 @stop
-
-

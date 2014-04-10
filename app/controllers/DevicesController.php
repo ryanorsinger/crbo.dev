@@ -2,6 +2,7 @@
 
 class DevicesController extends \BaseController {
 
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -19,6 +20,7 @@ class DevicesController extends \BaseController {
 	 */
 	public function create()
 	{
+		
 		return View::make('devices/create');
 	}
 
@@ -75,5 +77,4 @@ class DevicesController extends \BaseController {
 	{
 		//
 	}
-
 }
