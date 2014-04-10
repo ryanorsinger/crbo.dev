@@ -14,6 +14,15 @@
 
   </head>
   <body>
+  <br>
+  
+  <div class="row">
+    <div class="col-md-3 col-md-offset-2">
+      <img src="/img/210Geek_logo.png">
+    </div>
+  </div>
+
+  <br>
 
   <div class="navbar navbar-default">
     <div class="container-fluid">

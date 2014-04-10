@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-<title>Panel</title>
+<title>Devices</title>
 
 @stop
 
