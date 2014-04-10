@@ -9,7 +9,9 @@ class DevicesController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('devices/index');
+		$devices = Device::all();
+
+		return View::make('devices/index')->with('devices', $devices);
 	}
 
 	/**
