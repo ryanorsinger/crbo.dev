@@ -44,110 +44,49 @@ css to add styling to other stuff -->
 </div>
 <div class="well" id="manufacturer">
 	<div class="form-inline">Manufacturer
-
-		<label class="radio" id="manufacturer">&nbsp;</label>
-		<label class="radio">
-			<input type="radio" name="manufacturer" value="dell"/>
-			Dell&nbsp;
-		</label>
-		<label class="radio">
-			<input type="radio" name="manufacturer" value="hp"/>
-			HP&nbsp;
-		</label>
-		<label class="radio">
-			<input type="radio" name="manufacturer" value="compaq"/>
-			Compaq&nbsp;
-		</label>
-		<label class="radio">
-			<input type="radio" name="manufacturer" value="acer"/>
-			Acer&nbsp;
-		</label>
-		<label class="radio">
-			<input type="radio" name="manufacturer" value="toshiba"/>
-			Toshiba&nbsp;
-		</label>
-		<label class="radio">
-			<input type="radio" name="manufacturer" value="asus"/>
-			ASUS&nbsp;
-		</label>
-		<label class="radio">
-			<input type="radio" name="manufacturer" value="lenovo"/>
-			Lenovo&nbsp;
-		</label>
-		<label class="radio">
-			<input type="radio" name="manufacturer" value="e-machine"/>
-			e-machine&nbsp;
-		 </label>
-		 <label class="radio">
-			<input type="radio" name="manufacturer" value="custom"/>
-			Custom&nbsp;
-		 </label>
-		 <label class="radio">
-			<input type="radio" name="manufacturer" value="other"/>
-			Other&nbsp;
-		 </label>
+			@foreach($manufacturers as $manufacturer)	
+				<label class="radio"> 
+				<input type="radio" name="manufacturer" value="{{ $manufacturer->id }}"/>
+			    {{ $manufacturer->company }}
+			@endforeach
 	</div>
-</table>
 </div>
-
-
-<div class="dropdown">
-  <button class="btn dropdown-toggle sr-only" type="button" id="dropdownMenu1" data-toggle="dropdown">
-	Dropdown
-	<span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-	<li role="presentation" class="divider"></li>
-	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-  </ul>
+<div class="well" id="cpus">
+	<div class="form-inline">Processor
+		@foreach($cpus as $cpu)
+			<label class="radio">
+			<input type="radio" name="{{ $cpu->id }}" value="{{ $cpu->id }}"/>
+			{{ $manufacturer->company }}
+		@endforeach
+	</div>
 </div>
-
-<select multiple class="form-control">
-  <option>1</option>
-  <option>2</option>
-  <option>3</option>
-  <option>4</option>
-  <option>5</option>
-</select>
-	
-
-<div class="form-group">
-	<label class="sr-only" for="exampleInputEmail2">Email address</label>
-	<input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
-  </div>
-  <div class="form-group">
-	<label class="sr-only" for="exampleInputPassword2">Password</label>
-	<input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
-  </div>
-  <div class="checkbox">
-	<label>
-	  <input type="checkbox"> Remember me
-	</label>
-  </div>
-  <button type="submit" class="btn btn-default">Sign in</button>
-	
-
-	{{ Form::label('manufacturer', 'Manufacturer', array('class' => '')) }}
-	{{ Form::text('title', null, array('class' => 'form-control', 'placeholder'=>'Manufacturer')) }}
-
+<div class="well" id="hdds">
+	<div class="form-inline">Hard Drive
+		@foreach($hdds as $hdd)
+			<label class="radio">
+			<input type="radio" name="{{ $hdd->id }}" value="{{ $hdd->id }}"/>
+			{{ $hdd->form_factor }}
+			{{ $hdd->interface }}
+			{{ $hdd->capacity }}
+		@endforeach
+	</div>
+</div>
+<div class="well" id="rams">
+	<div class="form-inline">Memory
+		@foreach($rams as $ram)
+			<label class="radio">
+			<input type="radio" name="{{ $ram->id }}" value="{{ $ram->id }}"/>
+			{{ $ram->type }}
+			{{ $ram->speed }}
+			{{ $ram->size }}
+		@endforeach
+	</div>
+</div>
+			
 </div>
 <div class="col-lg-6">
 <h3>Checks</h3>
 	<div class="well">
-		<div class="form-inline">
-			<label class="network_boot" id="machine_powers_on">Machine powers on &nbsp;</label>
-			<label class="radio">
-				<input type="radio" name="machine_powers_on" value="pass"/>
-				&nbsp;Yes&nbsp;
-			</label>
-			<label class="radio">
-				<input type="radio" name="machine_powers_on" value="fail"/>
-				&nbsp;No&nbsp;
-			</label>
-		</div>
 		<div class="form-inline">
 			<label class="network_boot" id="network_boot">Network Boot &nbsp;</label>
 			<label class="radio">
@@ -160,17 +99,17 @@ css to add styling to other stuff -->
 			</label>
 		</div>
 		<div class="form-inline">
-			<label class="network_boot" id="memtest">Memtest &nbsp;</label>
+			<label class="network_boot" id="memtest">Memtest Pass&nbsp;</label>
 			<label class="radio">
-				<input type="radio" name="memtest" value="pass"/>
+				<input type="radio" name="mem_test" value="pass"/>
 				&nbsp;Pass&nbsp;
 			</label>
 			<label class="radio">
-				<input type="radio" name="memtest" value="fail"/>
+				<input type="radio" name="mem_test" value="fail"/>
 				&nbsp;Fail&nbsp;
 			</label>
 			<label class="radio">
-				<input type="radio" name="memtest" value="no_memory"/>
+				<input type="radio" name="mem_test" value="none"/>
 				&nbsp;No memory present&nbsp;
 			</label>
 		</div>
@@ -188,85 +127,216 @@ css to add styling to other stuff -->
 				<input type="radio" name="hdd_test" value="no_drive"/>
 				No drive present&nbsp;
 			</label>
+		</div>
+		<div class="form-inline">
+			<label class="network_boot" id="machine_powers_on">Machine powers on &nbsp;</label>
+			<label class="radio">
+				<input type="radio" name="machine_powers_on" value="pass"/>
+				&nbsp;Yes&nbsp;
+			</label>
+			<label class="radio">
+				<input type="radio" name="machine_powers_on" value="fail"/>
+				&nbsp;No&nbsp;
+			</label>
+		</div>
+		<div class="form-inline">
+			<label class="network_boot" id="bios_accessible">Is Bios Accessible &nbsp;</label>
+			<label class="radio">
+				<input type="radio" name="bios_accessible" value="yes"/>
+				&nbsp;Yes&nbsp;
+			</label>
+			<label class="radio">
+				<input type="radio" name="bios_accessible" value="no"/>
+				&nbsp;No&nbsp;
+			</label>
+		</div>
+		
+		<div class="form-inline">
+			<label class="network_boot" id="readable_os_license">OS License Readable/Present &nbsp;</label>
+			<label class="radio">
+				<input type="radio" name="readable_os_license" value="yes"/>
+				Yes&nbsp;
+			</label>
+			<label class="radio">
+				<input type="radio" name="readable_os_license" value="no"/>
+				No&nbsp;
+			</label>
+		</div>
+		<div class="form-inline">
+			<label class="network_boot" id="motherboard_capacitors">Motherboard capacitors good?&nbsp;</label>
+			<label class="radio">
+				<input type="radio" name="motherboard_capacitors" value="yes"/>
+				Yes&nbsp;
+			</label>
+			<label class="radio">
+				<input type="radio" name="motherboard_capacitors" value="no"/>
+				No&nbsp;
+			</label>
+		</div>
+		<div class="form-inline">
+			<label class="missing_loose_parts" id="missing_loose_parts">Are there missing or loose parts? &nbsp;</label>
+			<label class="radio">
+				<input type="radio" name="missing_loose_parts" value="yes"/>
+				yes&nbsp;
+			</label>
+			<label class="radio">
+				<input type="radio" name="missing_loose_parts" value="no"/>
+				no&nbsp;
+			</label>
+		</div>
+		<div class="form-inline">
+			<label class="usb_port_condition" id="usb_port_condition">USB port condition&nbsp;</label>
+			<label class="radio">
+				<input type="radio" name="usb_port_condition" value="good"/>
+				Good&nbsp;
+			</label>
+			<label class="radio">
+				<input type="radio" name="usb_port_condition" value="good"/>
+				Bad&nbsp;
+			</label>
+		</div>
+		<div class="form-inline">
+			<label class="network_boot" id="network_boot">PCMCI slot good? &nbsp;</label>
+			<label class="radio">
+				<input type="radio" name="pcmci_slot" value="good"/>
+				Good&nbsp;
+			</label>
+			<label class="radio">
+				<input type="radio" name="pcmcia_slot" value="bad"/>
+				Bad&nbsp;
+			</label>
+		</div>
+		<div class="form-inline">
+			<label class="network_boot" id="network_boot">Network Port good?&nbsp;</label>
+			<label class="radio">
+				<input type="radio" name="network_boot" value="pass"/>
+				Pass&nbsp;
+			</label>
+			<label class="radio">
+				<input type="radio" name="network_boot" value="failed"/>
+				Fail&nbsp;
+			</label>
+		</div>
+		<div class="form-inline">
+			<label class="network_boot" id="restore_partition_or_media">Is there a restore partition or original restore media?&nbsp;</label>
+			<label class="radio">
+				<input type="radio" name="restore_partition_or_media" value="yes"/>
+				Yes&nbsp;
+			</label>
+			<label class="radio">
+				<input type="radio" name="restore_partition_or_media" value="no"/>
+				No&nbsp;
+			</label>
+		</div>
+		<div class="form-inline">
+			<label class="network_boot" id="restore_partition_or_media">What type of optical drive?&nbsp;</label>
+			<label class="radio">
+				<input type="radio" name="restore_partition_or_media" value="yes"/>
+				Yes&nbsp;
+			</label>
+			<label class="radio">
+				<input type="radio" name="restore_partition_or_media" value="no"/>
+				No&nbsp;
+			</label>
+		</div>
+		<div class="form-inline">
+			<label class="network_boot" id="restore_partition_or_media">Optical Drive Works?&nbsp;</label>
+			<label class="radio">
+				<input type="radio" name="restore_partition_or_media" value="yes"/>
+				Yes&nbsp;
+			</label>
+			<label class="radio">
+				<input type="radio" name="restore_partition_or_media" value="no"/>
+				No&nbsp;
+			</label>
+			<input type="radio" name="restore_partition_or_media" value="missing"/>
+				Missing&nbsp;
+		</div>
+		<div class="form-inline">
+			<label class="network_boot" id="restore_partition_or_media">Internal Wifi Good?&nbsp;</label>
+			<label class="radio">
+				<input type="radio" name="restore_partition_or_media" value="yes"/>
+				pass&nbsp;
+			</label>
+			<label class="radio">
+				<input type="radio" name="restore_partition_or_media" value="no"/>
+				fail&nbsp;
+			</label>
+			<label class="radio">
+				<input type="radio" name="restore_partition_or_media" value="no"/>
+				missing&nbsp;
+			</label>
+		</div>
+		<label class="radio">
+				<input type="radio" name="restore_partition_or_media" value="no"/>
+				fail&nbsp;
+			</label>
+		<div class="form-inline">
+			<label class="network_boot" id="restore_partition_or_media">Internal sound?&nbsp;</label>
+			<label class="radio">
+				<input type="radio" name="restore_partition_or_media" value="pass"/>
+				Yes&nbsp;
+			</label>
+			<label class="radio">
+				<input type="radio" name="restore_partition_or_media" value="fail"/>
+				No&nbsp;
+			</label>
+		</div>
+		<div class="form-inline">
+			<label class="network_boot" id="restore_partition_or_media">Power Connector snug?&nbsp;</label>
+			<label class="radio">
+				<input type="radio" name="power_connector_snug" value="yes"/>
+				Yes&nbsp;
+			</label>
+			<label class="radio">
+				<input type="radio" name="power_connector_snug" value="no"/>
+				No&nbsp;
+			</label>
+		</div>
+		<div class="form-inline">
+			<label class="network_boot" id="restore_partition_or_media">Laptop Battery&nbsp;</label>
+			<label class="radio">
+				<input type="radio" name="power_connector_snug" value="good"/>
+				Good&nbsp;
+			</label>
+			<label class="radio">
+				<input type="radio" name="power_connector_snug" value="bad"/>
+				Bad&nbsp;
+			</label>
+			<label class="radio">
+				<input type="radio" name="power_connector_snug" value="missing"/>
+				missing&nbsp;
+			</label>
+		</div>
+		<div class="form-inline">
+			<label class="network_boot" id="keyboard_condition">Keyboard Condition?&nbsp;</label>
+			<label class="radio">
+				<input type="radio" name="keyboard_condition" value="good"/>
+				Yes&nbsp;
+			</label>
+			<label class="radio">
+				<input type="radio" name="keyboard_condition" value="bad"/>
+				No&nbsp;
+			</label>
+		</div>
+		<div class="form-inline">
+			<label class="network_boot" id="loud_fans">Are there loud fans?&nbsp;</label>
+			<label class="radio">
+				<input type="radio" name="loud_fans" value="good"/>
+				Yes&nbsp;
+			</label>
+			<label class="radio">
+				<input type="radio" name="loud_fans" value="bad"/>
+				No&nbsp;
+			</label>
+		</div>
 
-		</div>
-		<div class="form-inline">
-			<label class="network_boot" id="network_boot">Network Boot &nbsp;</label>
-			<label class="radio">
-				<input type="radio" name="network_boot" value="pass"/>
-				Pass&nbsp;
-			</label>
-			<label class="radio">
-				<input type="radio" name="network_boot" value="failed"/>
-				Fail&nbsp;
-			</label>
-		</div>
-		<div class="form-inline">
-			<label class="network_boot" id="network_boot">Network Boot &nbsp;</label>
-			<label class="radio">
-				<input type="radio" name="network_boot" value="pass"/>
-				Pass&nbsp;
-			</label>
-			<label class="radio">
-				<input type="radio" name="network_boot" value="failed"/>
-				Fail&nbsp;
-			</label>
-		</div>
-		<div class="form-inline">
-			<label class="network_boot" id="network_boot">Network Boot &nbsp;</label>
-			<label class="radio">
-				<input type="radio" name="network_boot" value="pass"/>
-				Pass&nbsp;
-			</label>
-			<label class="radio">
-				<input type="radio" name="network_boot" value="failed"/>
-				Fail&nbsp;
-			</label>
-		</div>
-		<div class="form-inline">
-			<label class="network_boot" id="network_boot">Network Boot &nbsp;</label>
-			<label class="radio">
-				<input type="radio" name="network_boot" value="pass"/>
-				Pass&nbsp;
-			</label>
-			<label class="radio">
-				<input type="radio" name="network_boot" value="failed"/>
-				Fail&nbsp;
-			</label>
-		</div>
-		<div class="form-inline">
-			<label class="network_boot" id="network_boot">Network Boot &nbsp;</label>
-			<label class="radio">
-				<input type="radio" name="network_boot" value="pass"/>
-				Pass&nbsp;
-			</label>
-			<label class="radio">
-				<input type="radio" name="network_boot" value="failed"/>
-				Fail&nbsp;
-			</label>
-		</div>
-		<div class="form-inline">
-			<label class="network_boot" id="network_boot">Network Boot &nbsp;</label>
-			<label class="radio">
-				<input type="radio" name="network_boot" value="pass"/>
-				Pass&nbsp;
-			</label>
-			<label class="radio">
-				<input type="radio" name="network_boot" value="failed"/>
-				Fail&nbsp;
-			</label>
-		</div>
-		<div class="form-inline">
-			<label class="network_boot" id="network_boot">Network Boot &nbsp;</label>
-			<label class="radio">
-				<input type="radio" name="network_boot" value="pass"/>
-				Pass&nbsp;
-			</label>
-			<label class="radio">
-				<input type="radio" name="network_boot" value="failed"/>
-				Fail&nbsp;
-			</label>
-		</div>
+
+
+
+
+		
+
 	</div>
 </div>
 

@@ -23,7 +23,22 @@ class DevicesController extends \BaseController {
 	public function create()
 	{
 		
-		return View::make('devices/create');
+
+		$devices = Device::all();
+		$manufacturers = Manufacturer::all();
+		$hdds = Hdd::all();
+		$rams = Ram::all();
+		$cpus = Cpu::all();
+
+		$data = array(
+			'devices' => $devices,
+			'manufacturers' => $manufacturers,
+			'hdds' => $hdds,
+			'rams' => $rams,
+			'cpus' => $cpus
+			);
+
+		return View::make('devices/create')->with($data);
 	}
 
 	/**
