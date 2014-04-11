@@ -2,6 +2,12 @@
 
 class Cpu extends Eloquent {
 
-	protected $table = 'cpu';
+	protected $table = 'cpus';
 	
+	public function devices(){
+
+		return $this->belongsToMany('Device');
+	}
+
 }
+
