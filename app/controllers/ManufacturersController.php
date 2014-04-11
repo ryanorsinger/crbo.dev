@@ -9,8 +9,8 @@ class ManufacturerController extends \BaseController {
 	 */
 	public function index()
 	{
-		$manufacturers = Manufacturer::all();
-		
+		//$manufacturers = Manufacturer::all();
+		$manufacturers = DB::table('manufacturers')->get();
 
 		// $search = Input::get('search');
 		// $manufacturers = Manufacturer::all();
@@ -24,8 +24,9 @@ class ManufacturerController extends \BaseController {
 		// 				   ->paginate(3);
 		// }
 
-		// return View::make('posts.index')->with('posts', $posts);
-		// }
+		// return View::make('posts.index')->with('manufacturers', $manufacturers);
+		// return View::share('manufacturers', $manufacturers);
+		
 	}
 
 	/**

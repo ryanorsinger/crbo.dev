@@ -28,3 +28,22 @@ Route::get('/login', 'HomeController@showLogin');
 Route::post('/login', 'HomeController@doLogin');
 
 Route::get('/logout', 'HomeController@logout');
+
+Route::get('ajax/get', function()
+{
+	Log::info("Received get.");
+	Log::info(Input::all());
+
+	$reply = array('error' => fasle, 'message' => "Here is a message from the server.");
+	return Response::json($reply);
+
+});
+
+Route::post('ajax/post', function()
+{
+	Log::info("received post.");
+	Log::info(Input::all());
+
+	$reply = array('error' => false, 'message' => "Here is a post message from the server.");
+	return Response::json($reply);
+});

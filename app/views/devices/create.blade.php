@@ -44,95 +44,45 @@ css to add styling to other stuff -->
 </div>
 <div class="well" id="manufacturer">
 	<div class="form-inline">Manufacturer
-
-		<label class="radio" id="manufacturer">&nbsp;</label>
-		<label class="radio">
-			<input type="radio" name="manufacturer" value="dell"/>
-			Dell&nbsp;
-		</label>
-		<label class="radio">
-			<input type="radio" name="manufacturer" value="hp"/>
-			HP&nbsp;
-		</label>
-		<label class="radio">
-			<input type="radio" name="manufacturer" value="compaq"/>
-			Compaq&nbsp;
-		</label>
-		<label class="radio">
-			<input type="radio" name="manufacturer" value="acer"/>
-			Acer&nbsp;
-		</label>
-		<label class="radio">
-			<input type="radio" name="manufacturer" value="toshiba"/>
-			Toshiba&nbsp;
-		</label>
-		<label class="radio">
-			<input type="radio" name="manufacturer" value="asus"/>
-			ASUS&nbsp;
-		</label>
-		<label class="radio">
-			<input type="radio" name="manufacturer" value="lenovo"/>
-			Lenovo&nbsp;
-		</label>
-		<label class="radio">
-			<input type="radio" name="manufacturer" value="e-machine"/>
-			e-machine&nbsp;
-		 </label>
-		 <label class="radio">
-			<input type="radio" name="manufacturer" value="custom"/>
-			Custom&nbsp;
-		 </label>
-		 <label class="radio">
-			<input type="radio" name="manufacturer" value="other"/>
-			Other&nbsp;
-		 </label>
+			@foreach($manufacturers as $manufacturer)	
+				<label class="radio"> 
+				<input type="radio" name="manufacturer" value="{{ $manufacturer->id }}"/>
+			    {{ $manufacturer->company }}
+			@endforeach
 	</div>
-</table>
 </div>
-
-
-<div class="dropdown">
-  <button class="btn dropdown-toggle sr-only" type="button" id="dropdownMenu1" data-toggle="dropdown">
-	Dropdown
-	<span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-	<li role="presentation" class="divider"></li>
-	<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-  </ul>
+<div class="well" id="cpus">
+	<div class="form-inline">Processor
+		@foreach($cpus as $cpu)
+			<label class="radio">
+			<input type="radio" name="{{ $cpu->id }}" value="{{ $cpu->id }}"/>
+			{{ $manufacturer->company }}
+		@endforeach
+	</div>
 </div>
-
-<select multiple class="form-control">
-  <option>1</option>
-  <option>2</option>
-  <option>3</option>
-  <option>4</option>
-  <option>5</option>
-</select>
-	
-
-<div class="form-group">
-	<label class="sr-only" for="exampleInputEmail2">Email address</label>
-	<input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
-  </div>
-  <div class="form-group">
-	<label class="sr-only" for="exampleInputPassword2">Password</label>
-	<input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
-  </div>
-  <div class="checkbox">
-	<label>
-	  <input type="checkbox"> Remember me
-	</label>
-  </div>
-  <button type="submit" class="btn btn-default">Sign in</button>
-	
-
-	{{ Form::label('manufacturer', 'Manufacturer', array('class' => '')) }}
-	{{ Form::text('title', null, array('class' => 'form-control', 'placeholder'=>'Manufacturer')) }}
-
+<div class="well" id="hdds">
+	<div class="form-inline">Hard Drive
+		@foreach($hdds as $hdd)
+			<label class="radio">
+			<input type="radio" name="{{ $hdd->id }}" value="{{ $hdd->id }}"/>
+			{{ $hdd->form_factor }}
+			{{ $hdd->interface }}
+			{{ $hdd->capacity }}
+		@endforeach
+	</div>
+</div>
+<div class="well" id="rams">
+	<div class="form-inline">Memory
+		@foreach($rams as $ram)
+			<label class="radio">
+			<input type="radio" name="{{ $ram->id }}" value="{{ $ram->id }}"/>
+			{{ $ram->type }}
+			{{ $ram->speed }}
+			{{ $ram->size }}
+		@endforeach
+	</div>
+</div>
+			
 </div>
 <div class="col-lg-6">
 <h3>Checks</h3>
