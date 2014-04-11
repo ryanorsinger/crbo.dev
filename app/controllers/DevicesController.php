@@ -44,7 +44,8 @@ class DevicesController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$device = Device::find($id);
+		return View::make('devices/show')->with('device', $device);
 	}
 
 	/**

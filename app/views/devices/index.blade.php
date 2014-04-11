@@ -27,7 +27,7 @@
 		<tbody>
 			@foreach ($devices as $device)
 			<tr>
-				<td>{{{ $device->id }}}</td>
+				<td><a href=" {{{ action('DevicesController@show', $device->id) }}}"> {{{ $device->id }}} </a></td>
 				<td>{{{ $device->acquisition_type }}}</td>
 				<td>{{{ $device->manufacturer }}}</td>
 				<td>{{{ $device->model }}}</td>
@@ -36,6 +36,7 @@
 				<td>{{{ $device->acquisition_cost }}}</td>
 				<td>{{{ $device->acquisition_grade_abc }}}</td>
 				<td>{{{ $device->created_at->setTimezone('America/Chicago')->format('m / d') }}}</td>
+			</tr>
 			@endforeach
 	</table>
 </div>
