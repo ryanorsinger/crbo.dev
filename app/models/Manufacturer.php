@@ -2,7 +2,7 @@
 
 class Manufacturer extends Eloquent {
 
-	protected $table = 'manufacturer';
+	protected $table = 'manufacturers';
 	
 	public function devices()
 	{
