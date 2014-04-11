@@ -2,7 +2,7 @@
 
 class Hdd extends Eloquent {
 
-	protected $table = 'hdd';
+	protected $table = 'hdds';
 	
 	public function devices()
 	{

@@ -2,7 +2,7 @@
 
 class Ram extends Eloquent {
 
-	protected $table = 'ram';
+	protected $table = 'rams';
 	
 	public function devices(){
 
