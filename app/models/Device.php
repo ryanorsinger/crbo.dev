@@ -4,6 +4,11 @@ class Device extends Eloquent {
 
 	protected $table = 'devices';
 
+	public static $rules = array(
+	   
+	    
+	);
+
 	public function cpus()
 	{
 		return $this->hasMany('Cpu');

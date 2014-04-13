@@ -15,13 +15,13 @@ Route::get('/', 'HomeController@showHome');
 
 Route::resource('/devices', 'DevicesController');
 
-Route::resource('/ram', 'RamController');
+Route::resource('/rams', 'RamsController');
 
-Route::resource('/hdd', 'HddController');
+Route::resource('/hdds', 'HddsController');
 
-Route::resource('/cpu', 'CpuController');
+Route::resource('/cpus', 'CpusController');
 
-Route::resource('/manufacturer', 'ManufacturerController');
+Route::resource('/manufacturers', 'ManufacturersController');
 
 Route::get('/login', 'HomeController@showLogin');
 

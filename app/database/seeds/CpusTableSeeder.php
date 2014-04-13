@@ -1,10 +1,10 @@
 <?php
 
-class CpuTableSeeder extends Seeder {
+class CpusTableSeeder extends Seeder {
 	
 	public function run()
 	{
-		DB::table('cpu')->delete();
+		DB::table('cpus')->delete();
 
         	$cpu = new Cpu();
                 $cpu->make = 'AMD';

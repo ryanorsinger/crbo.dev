@@ -1,6 +1,6 @@
 <?php
 
-class RamController extends \BaseController {
+class RamsController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.

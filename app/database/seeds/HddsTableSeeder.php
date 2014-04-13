@@ -1,10 +1,10 @@
 <?php
 
-class HddTableSeeder extends Seeder {
+class HddsTableSeeder extends Seeder {
 	
 	public function run()
 	{
-		DB::table('hdd')->delete();
+		DB::table('hdds')->delete();
 
         	$hdd = new Hdd();
                 $hdd->form_factor = '3.5';
