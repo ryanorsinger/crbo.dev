@@ -1,10 +1,10 @@
 <?php
 
-class ManufacturerTableSeeder extends Seeder {
+class ManufacturersTableSeeder extends Seeder {
 	
 	public function run()
 	{
-		DB::table('manufacturer')->delete();
+		DB::table('manufacturers')->delete();
 
         	$manufacturer = new Manufacturer();
                 $manufacturer->company = 'Dell';

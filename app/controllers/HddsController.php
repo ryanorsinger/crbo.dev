@@ -1,6 +1,6 @@
 <?php
 
-class HddController extends \BaseController {
+class HddsController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.

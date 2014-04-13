@@ -1,6 +1,6 @@
 <?php
 
-class ManufacturerController extends \BaseController {
+class ManufacturersController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.

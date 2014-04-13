@@ -1,10 +1,10 @@
 <?php
 
-class RamTableSeeder extends Seeder {
+class RamsTableSeeder extends Seeder {
 	
 	public function run()
 	{
-		DB::table('ram')->delete();
+		DB::table('rams')->delete();
 
         	$ram = new Ram();
                 $ram->type = 'DDR1';
