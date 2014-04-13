@@ -29,13 +29,15 @@ class DevicesController extends \BaseController {
 		$hdds = Hdd::all();
 		$rams = Ram::all();
 		$cpus = Cpu::all();
+		$users = User::all();
 
 		$data = array(
 			'devices' => $devices,
 			'manufacturers' => $manufacturers,
 			'hdds' => $hdds,
 			'rams' => $rams,
-			'cpus' => $cpus
+			'cpus' => $cpus,
+			'users' => $users
 			);
 
 		return View::make('devices/create')->with($data);
@@ -111,6 +113,7 @@ class DevicesController extends \BaseController {
 	public function show($id)
 	{
 		$device = Device::find($id);
+		
 		return View::make('devices/show')->with('device', $device);
 	}
 
