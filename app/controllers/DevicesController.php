@@ -29,6 +29,7 @@ class DevicesController extends \BaseController {
 		$hdds = Hdd::all();
 		$rams = Ram::all();
 		$cpus = Cpu::all();
+		$users = User::all();
 
 		$data = array(
 			'devices' => $devices,
