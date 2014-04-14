@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +9,7 @@
     @yield('top-script')
     <!-- Bootstrap -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    
 
     @yield('style')
 
@@ -62,6 +63,9 @@
 
     @yield('content')
 
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js">
+    </script>
 </body>
 
   <!-- SCRIPTS -->
@@ -69,4 +73,5 @@
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
   @yield('bottom-script')
+
 </html>

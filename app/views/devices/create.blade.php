@@ -9,7 +9,7 @@
 
 
 @section('content')
-<div class="container">
+<div class="container" ng-controller="CreateController">
 <h1 class="page-header">210Geeks.com &nbsp; Buy Back Procedure Form</h1>
 	<div>
 	<row>
@@ -50,7 +50,8 @@
 				</div>
 			</div>
 			<div class="well" id="cpus">
-				<div class="form-inline">Processor
+				<div class="form-inline">Processor &nbsp; 
+					<input type="text" autofocus="autofocus" id="cpu_search" placeholder="type in processor" ng-model="search_cpu">
 					@foreach($cpus as $cpu)
 						<label class="radio">
 						<input type="radio" name="cpu" value="{{ $cpu->id }}"/>
@@ -406,12 +407,7 @@
 			</div>
 		<br>
 		<div class="well">
-			<div class="input-group" id="high_price_display">
-		  		<span class="input-group-addon">Highest Negotiating Price &nbsp; $</span>
-		  		<label for="high_price"></label>
-		  		<input type="text" name="high_price" id="high_price" class="form-control" disabled>
-		  		<span class="input-group-addon">.00</span>
-	  		</div>
+			
 	  		<br>
 	  		<div class="input-group" id="buy_back_cost_display">
 		  		<span class="input-group-addon">Buy Back Cost &nbsp; $</span>
@@ -431,7 +427,6 @@
 	</div>
 	
 	
-	
 	<!-- <button type="submit" class="btn btn-default">Add Device </button>	 -->
 </div>
 </div>
@@ -442,7 +437,10 @@
 </div>
 </div>
 
+<script src="/js/create.js">
+    </script>
+@stop
 
-
+@section('bottom-script')
 
 @stop
