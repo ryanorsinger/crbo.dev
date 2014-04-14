@@ -71,6 +71,8 @@ class DevicesController extends \BaseController {
 			Log::info(Input::all());
 			$device = new Device();
 			$device->acquisition_type = Input::get('acquisition_type');
+			$device->model = Input::get('model');
+			$device->purchased_by = Auth::user()->username;
 			$device->hardware_type = Input::get('hardware_type');
 			$device->physical_damage = Input::get('physical_damage');
 			$device->network_boot = Input::get('network_boot');

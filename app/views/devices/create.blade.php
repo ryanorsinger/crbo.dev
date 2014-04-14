@@ -57,6 +57,12 @@
 						    {{ $manufacturer->company }}
 						@endforeach
 				</div>
+				<br>
+				<div class="form-group">
+					<label for="model" value="model">Model:
+					<input class="form-control" type="text" name="model"/>
+					</label>
+				</div>
 			</div>
 			<div class="well" id="cpus">
 				<div class="form-inline">Processor &nbsp; 
@@ -418,16 +424,13 @@
 		<div class="well">
 			
 			<br>
-	  		<div class="input-group">
-	  			
-	  			<input class="form-control" type="text" name="high_price" id="disabledInput">
-			</div>
 	  		<div class="input-group" id="buy_back_cost_display">
 		  		<span class="input-group-addon">Buy Back Cost &nbsp; $</span>
 		  		<label for="acquisition_cost"></label>
 		  		<input type="text" name="acquisition_cost" id="acquisition_cost" class="form-control">
 		  		<span class="input-group-addon">.00</span>
 			</div>
+			<input type="hidden" name="high_price" id="disabledInput">
 		<br>
 		<button type="submit" class="btn btn-primary btn-lg btn-block">Add Device to Database</button>
 		</div>
@@ -483,7 +486,7 @@
 				   manufacturer = $('input[name=manufacturer]:checked', '#priceForm').data("price");
 
 				   price = (ram + cpu + hdd + manufacturer);
-				   $('#disabledInput').attr('placeholder', price);
+
 				   $('#disabledInput').attr('value', price);
 				   $('#price-box').html("<p>HIGH PRICE: " + price + "</p>");
 			}
