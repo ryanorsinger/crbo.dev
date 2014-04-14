@@ -19,39 +19,33 @@
   
   <div class="row">
     <div class="col-md-3 col-md-offset-2">
-      <img src="/img/210Geek_logo.png">
+      <a href="/"><img src="/img/210Geek_logo.png"></a>
     </div>
   </div>
 
   <br>
 
-  <div class="navbar navbar-default">
-    <div class="container-fluid">
-    
-      <!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-        <span class="icon-bar">Create New Acquisition</span>
-        <span class="icon-bar">List Devices to Refurbish</span>
-        <span class="icon-bar">Admin</span>
-      </button>
-      
-      
-      <div class="nav-collapse collapse navbar-responsive-collapse">
-        <ul class="nav row">
-          <li class="col-12 col-sm-2"><a href="{{{ action('HomeController@showHome') }}}"><span class="icon icon-home"></span> <span class="text">HOME</span></a></li>
-          <li class="col-12 col-sm-2"><a href=""><span class="icon icon-user"></span> <span class="text">RESUME</span></a></li>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
 
-          <li class="col-12 col-sm-2"><a href=""><span class="icon icon-briefcase"></span> <span class="text">PORTFOLIO</span></a></li>
-          <li class="col-12 col-sm-2"><a href=""><span class="icon icon-gears"></span> <span class="text">BLOG</span></a></li>
-          @if (Auth::check())
-          <li class="col-12 col-sm-2"><a href=""><span class="icon icon-heart"></span> <span class="text">LOGOUT</span></a></li>
-          @else
-          <li class="col-12 col-sm-2"><a href=""><span class="icon icon-envelope"></span> <span class="text">LOGIN</span></a></li>
-          @endif        
-        </ul>
-      </div><!-- /.nav-collapse -->
-    </div><!-- /.container -->
-  </div><!-- /.navbar -->
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li>
+            <a href="/" class="btn-lg">
+              <span class="glyphicon glyphicon-home"></span>
+            </a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        @if (Auth::check() && Auth::user()->role == "admin")
+        <li><a href=" {{{ action('HomeController@showAdmin') }}} ">Admin Panel</a>
+        @endif
+        <li><a href="{{{ action('HomeController@logout') }}}">Logout</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 
     @if (Session::has('successMessage'))
         <div class="alert alert-success message">{{{ Session::get('successMessage') }}}</div>
