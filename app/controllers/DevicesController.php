@@ -102,11 +102,7 @@ class DevicesController extends \BaseController {
 			
 			$device->high_price = Input::get('high_price');
 
-			// $device->manufacturer = Input::get('manufacturer');
-
-
-			// $manufacturer = Manufacturer::findOrFail(Input::get('manufacturer'));
-			// $manufacturer->save();
+			$device->manufacturer = Input::get('manufacturer');
 
 			$cpu = Cpu::findOrFail(Input::get('cpu'));
 			$cpu->save();
