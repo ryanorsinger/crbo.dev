@@ -23,11 +23,15 @@ Route::resource('/cpus', 'CpusController');
 
 Route::resource('/manufacturers', 'ManufacturersController');
 
+Route::resource('/users', 'UsersController');
+
 Route::get('/login', 'HomeController@showLogin');
 
 Route::post('/login', 'HomeController@doLogin');
 
 Route::get('/logout', 'HomeController@logout');
+
+Route::get('/admin', 'HomeController@showAdmin');
 
 Route::get('ajax/get', function()
 {
