@@ -95,9 +95,9 @@ class DevicesController extends \BaseController {
 			$device->acquisition_cost = Input::get('acquisition_cost');
 			$device->acquisition_comments = Input::get('acquisition_comments');
 			$device->acquisition_grade_abc = Input::get('acquisition_grade_abc');
-			$device->high_price = Input::get('high_price');
+			
 
-			// $device->purchased_by = Auth::user()->id;
+			//$device->purchased_by = Auth::user()->id;
 			$device->save();
 			//Session::flash('successMessage', 'Post created successfully');
 			return Redirect::action('DevicesController@index');
@@ -125,7 +125,9 @@ class DevicesController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		return View::make('devices/edit');
+		$device = Device::find($id);
+		
+		return View::make('devices/edit')->with('device', $device);
 	}
 
 	/**
