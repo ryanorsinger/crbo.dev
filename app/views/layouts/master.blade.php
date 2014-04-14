@@ -30,9 +30,9 @@
     
       <!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+        <span class="icon-bar">Create New Acquisition</span>
+        <span class="icon-bar">List Devices to Refurbish</span>
+        <span class="icon-bar">Admin</span>
       </button>
       
       

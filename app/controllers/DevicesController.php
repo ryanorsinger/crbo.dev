@@ -12,7 +12,12 @@ class DevicesController extends \BaseController {
 	{
 		$devices = Device::all();
 
-		return View::make('devices/index')->with('devices', $devices);
+
+		$data = array(
+			'devices' => $devices, 
+			);
+
+		return View::make('devices/index')->with($data);
 	}
 
 	/**
@@ -96,9 +101,25 @@ class DevicesController extends \BaseController {
 			$device->acquisition_comments = Input::get('acquisition_comments');
 			$device->acquisition_grade_abc = Input::get('acquisition_grade_abc');
 			
+			$device->high_price = Input::get('high_price');
 
-			//$device->purchased_by = Auth::user()->id;
+
+
+			$cpu = Manufacturer::findOrFail(Input::get('manufacturer'));
+			$cpu->save();
+
+			$cpu = Cpu::findOrFail(Input::get('cpu'));
+			$cpu->save();
+
+			$ram = Ram::findOrFail(Input::get('ram'));
+			$ram->save();
+
+			$hdd = Hdd::findorFail(Input::get('hdd'));
+			$hdd->save();
+
 			$device->save();
+
+
 			//Session::flash('successMessage', 'Post created successfully');
 			return Redirect::action('DevicesController@index');
 		}

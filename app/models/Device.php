@@ -11,27 +11,27 @@ class Device extends Eloquent {
 
 	public function cpus()
 	{
-		return $this->hasMany('Cpu');
+		return $this->belongsToMany('Cpu');
 	}
 
 	public function hdds()
 	{
-		return $this->hasMany('Hdd');
+		return $this->belongsToMany('Hdd');
 	}
 	
 	public function manufacturers()
 	{
-		return $this->hasMany('Manufacturer');
+		return $this->belongsToMany('Manufacturer');
 	}
 
 	public function rams()
 	{
-		return $this->hasMany('Ram');
+		return $this->belongsToMany('Ram');
 	}
 
 	public function users()
 	{
-		return $this->hasMany('User');
+		return $this->belongsToMany('User');
 	}
 
 
