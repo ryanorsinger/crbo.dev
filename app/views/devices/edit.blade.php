@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-<title></title>
+<title>Refurb technician view</title>
 
 @stop
 
@@ -269,7 +269,7 @@
 				<td>Internal Sound:</td>
 				<td>{{{ $device->internal_sound }}}</td>
 				<td><div class="form-inline">
-					<label class="refurb_access_bios" id="refurb_internal_sound">Internal Sound? &nbsp;</label>
+					<label class="refurb_access_bios" id="refurb_internal_sound"></label>
 					<label class="radio">
 						<input type="radio" name="refurb_internal_sound" value="confirm"/>
 						&nbsp;Confirm&nbsp;
@@ -284,7 +284,7 @@
 				<td>Laptop Screen Size:</td>
 				<td>{{{ $device->laptop_screen_size }}}</td>
 				<td><div class="form-inline">
-					<label class="refurb_access_bios" id="refurb_laptop_screen_size">Laptop Screen Size? &nbsp;</label>
+					<label class="refurb_access_bios" id="refurb_laptop_screen_size"></label>
 					<label class="radio">
 						<input type="radio" name="refurb_laptop_screen_size" value="confirm"/>
 						&nbsp;Confirm&nbsp;
@@ -299,7 +299,7 @@
 				<td>Laptop Screen Condition:</td>
 				<td>{{{ $device->laptop_screen_condition }}}</td>
 				<td><div class="form-inline">
-					<label class="refurb_access_bios" id="refurb_laptop_screen_condition">Laptop Screen Condition? &nbsp;</label>
+					<label class="refurb_access_bios" id="refurb_laptop_screen_condition"></label>
 					<label class="radio">
 						<input type="radio" name="refurb_laptop_screen_condition" value="confirm"/>
 						&nbsp;Confirm&nbsp;
@@ -314,7 +314,7 @@
 				<td>Laptop Power Charger:</td>
 				<td>{{{ $device->laptop_power_charger }}}</td>
 				<td><div class="form-inline">
-					<label class="refurb_access_bios" id="refurb_laptop_power_charger">Laptop Power Charger? &nbsp;</label>
+					<label class="refurb_access_bios" id="refurb_laptop_power_charger"></label>
 					<label class="radio">
 						<input type="radio" name="refurb_laptop_power_charger" value="confirm"/>
 						&nbsp;Confirm&nbsp;
@@ -329,7 +329,7 @@
 				<td>Is Power Connector Snug?</td>
 				<td>{{{ $device->power_connector_snug }}}</td>
 				<td><div class="form-inline">
-					<label class="refurb_access_bios" id="refurb_power_connector_snug">Power Connector Snug? &nbsp;</label>
+					<label class="refurb_access_bios" id="refurb_power_connector_snug"></label>
 					<label class="radio">
 						<input type="radio" name="refurb_power_connector_snug" value="confirm"/>
 						&nbsp;Confirm&nbsp;
@@ -344,7 +344,7 @@
 				<td>Laptop Battery Inlcuded?</td>
 				<td>{{{ $device->laptop_battery }}}</td>
 				<td><div class="form-inline">
-					<label class="refurb_access_bios" id="refurb_laptop_battery_condition">Laptop Battery? &nbsp;</label>
+					<label class="refurb_access_bios" id="refurb_laptop_battery_condition"></label>
 					<label class="radio">
 						<input type="radio" name="refurb_laptop_battery_condition" value="confirm"/>
 						&nbsp;Confirm&nbsp;
@@ -359,7 +359,7 @@
 				<td>Does Keyboard Need Replacement?</td>
 				<td>{{{ $device->keyboard_condition }}}</td>
 				<td><div class="form-inline">
-					<label class="refurb_access_bios" id="refurb_keyboard_condition">Keyboard Condition? &nbsp;</label>
+					<label class="refurb_access_bios" id="refurb_keyboard_condition"></label>
 					<label class="radio">
 						<input type="radio" name="refurb_keyboard_condition" value="confirm"/>
 						&nbsp;Confirm&nbsp;
@@ -374,7 +374,7 @@
 				<td>Are Fans Loud?:</td>
 				<td>{{{ $device->loud_fans }}}</td>
 				<td><div class="form-inline">
-					<label class="refurb_access_bios" id="refurb_fans_run_loud">Loud fans? &nbsp;</label>
+					<label class="refurb_access_bios" id="refurb_fans_run_loud"></label>
 					<label class="radio">
 						<input type="radio" name="refurb_fans_run_loud" value="confirm"/>
 						&nbsp;Confirm&nbsp;
@@ -386,6 +386,22 @@
 				</div></td>
 			</tr>
 	</table></center>
+</div>
+<div class="container">
+	<row>
+		<div class="col-md-1">
+		</div>
+
+		<div class="col-md-10">
+			<div class="well">
+
+
+			</div>
+		</div>
+
+		<div class="col-md-1">
+		</div>
+	</row>
 </div>
 
 
