@@ -72,7 +72,6 @@ class DevicesController extends \BaseController {
 			$device = new Device();
 			$device->acquisition_type = Input::get('acquisition_type');
 			$device->hardware_type = Input::get('hardware_type');
-			$device->manufacturer = Input::get('manufacturer');
 			$device->physical_damage = Input::get('physical_damage');
 			$device->network_boot = Input::get('network_boot');
 			$device->mem_test = Input::get('mem_test');
@@ -103,10 +102,11 @@ class DevicesController extends \BaseController {
 			
 			$device->high_price = Input::get('high_price');
 
+			// $device->manufacturer = Input::get('manufacturer');
 
 
-			$cpu = Manufacturer::findOrFail(Input::get('manufacturer'));
-			$cpu->save();
+			// $manufacturer = Manufacturer::findOrFail(Input::get('manufacturer'));
+			// $manufacturer->save();
 
 			$cpu = Cpu::findOrFail(Input::get('cpu'));
 			$cpu->save();
@@ -120,7 +120,6 @@ class DevicesController extends \BaseController {
 			$device->save();
 
 
-			//Session::flash('successMessage', 'Post created successfully');
 			return Redirect::action('DevicesController@index');
 		}
 	}
