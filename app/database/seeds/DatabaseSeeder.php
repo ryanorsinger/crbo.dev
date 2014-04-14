@@ -11,9 +11,9 @@ class DatabaseSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 
-		$this->call('HddTableSeeder.php');
-		$this->call('RamTableSeeder.php');
-		$this->call('CpuTableSeeder.php');
+		$this->call('HddsTableSeeder');
+		$this->call('RamsTableSeeder');
+		$this->call('CpusTableSeeder');
 		$this->call('UsersTableSeeder');
 		$this->call('DevicesTableSeeder');
 		$this->call('ManufacturersTableSeeder');
