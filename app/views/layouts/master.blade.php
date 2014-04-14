@@ -64,8 +64,6 @@
     @yield('content')
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js">
-    </script>
 </body>
 
   <!-- SCRIPTS -->

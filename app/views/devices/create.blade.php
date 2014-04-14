@@ -5,6 +5,15 @@
 @stop
 
 @section('style')
+<style>
+#price-box	
+{ 
+	position:fixed; top:2%; right:2%;
+	background-color: #FF0000;
+	width: 200px;
+	height: 50px;
+}
+</style>
 @stop
 
 
@@ -13,7 +22,7 @@
 <h1 class="page-header">210Geeks.com &nbsp; Buy Back Procedure Form</h1>
 	<div>
 	<row>
-	{{ Form::open(array('action' => 'DevicesController@store', 'class' => 'form-inline')) }}
+	{{ Form::open(array('action' => 'DevicesController@store', 'class' => 'form-inline', 'id' => 'priceForm')) }}
 		<div class="col-lg-6">	
 		<h2>Device Information</h2>
 			<div class="well">
@@ -44,7 +53,7 @@
 				<div class="form-inline">Manufacturer
 						@foreach($manufacturers as $manufacturer)	
 							<label class="radio"> 
-							<input type="radio" name="manufacturer" value="{{ $manufacturer->company }}"/>
+							<input type="radio" name="manufacturer" value="{{ $manufacturer->company }}" data-price="{{ $manufacturer->price }}"/>
 						    {{ $manufacturer->company }}
 						@endforeach
 				</div>
@@ -54,7 +63,7 @@
 					<input type="text" autofocus="autofocus" id="cpu_search" placeholder="type in processor" ng-model="search_cpu">
 					@foreach($cpus as $cpu)
 						<label class="radio">
-						<input type="radio" name="cpu" value="{{ $cpu->id }}"/>
+						<input type="radio" name="cpu" value="{{ $cpu->id }}" data-price="{{ $cpu->price }}"/>
 						{{ $cpu->make }}
 						{{ $cpu->model }}
 						{{ $cpu->number_of_cores }}
@@ -66,7 +75,7 @@
 				<div class="form-inline">Hard Drive
 					@foreach($hdds as $hdd)
 						<label class="radio">
-						<input type="radio" name="hdd" value="{{ $hdd->id }}"/>
+						<input type="radio" name="hdd" value="{{ $hdd->id }}" data-price="{{ $hdd->price }}"/>
 						{{ $hdd->form_factor }}
 						{{ $hdd->interface }}
 						{{ $hdd->capacity }}
@@ -77,7 +86,7 @@
 				<div class="form-inline">Memory
 					@foreach($rams as $ram)
 						<label class="radio">
-						<input type="radio" name="ram" value="{{ $ram->id }}"/>
+						<input type="radio" name="ram" value="{{ $ram->id }}" data-price="{{ $ram->price }}"/>
 						{{ $ram->type }}
 						{{ $ram->speed }}
 						{{ $ram->size }}
@@ -409,6 +418,9 @@
 		<div class="well">
 			
 	  		<br>
+	  		<div class="input-group">
+	  			<input class="form-control" name="high_price" id="disabledInput" type="text" disabled>
+			</div>
 	  		<div class="input-group" id="buy_back_cost_display">
 		  		<span class="input-group-addon">Buy Back Cost &nbsp; $</span>
 		  		<label for="acquisition_cost"></label>
@@ -437,10 +449,44 @@
 </div>
 </div>
 
-<script src="/js/create.js">
-    </script>
+<div id="price-box">
+	<p>HIGH PRICE: 0<p>
+</div>
+
+
 @stop
 
 @section('bottom-script')
+<script>
 
+		var cpu = 0;
+		var hdd = 0;
+		var ram = 0;
+		var manufacturer = 0;
+		var price = 0;
+
+		// $('#ram-1').on('click', function() {
+		// 	// price = price + 1;
+		// 	console.log($(this).html());
+		// 	// $('#price-number').html("HIGH PRICE: " . price);
+		// });
+
+		$('#priceForm input').on('change', function() {
+			if (($.isNumeric($('input[name=ram]:checked', '#priceForm').data("price"))) &&
+				($.isNumeric($('input[name=cpu]:checked', '#priceForm').data("price"))) &&
+				($.isNumeric($('input[name=hdd]:checked', '#priceForm').data("price"))) &&
+				($.isNumeric($('input[name=manufacturer]:checked', '#priceForm').data("price")))) {
+				   ram = $('input[name=ram]:checked', '#priceForm').data("price");
+				   cpu = $('input[name=cpu]:checked', '#priceForm').data("price");
+				   hdd = $('input[name=hdd]:checked', '#priceForm').data("price");
+				   manufacturer = $('input[name=manufacturer]:checked', '#priceForm').data("price");
+
+				   price = (ram + cpu + hdd + manufacturer);
+				   $('#disabledInput').attr('placeholder', price);
+				   $('#price-box').html("<p>HIGH PRICE: " + price + "</p>");
+			}
+		});
+
+
+</script>
 @stop
