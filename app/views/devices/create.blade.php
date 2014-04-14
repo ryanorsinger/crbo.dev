@@ -60,7 +60,7 @@
 			</div>
 			<div class="well" id="cpus">
 				<div class="form-inline">Processor &nbsp; 
-					<input type="text" autofocus="autofocus" id="cpu_search" placeholder="type in processor" ng-model="search_cpu">
+					<input type="text" autofocus="autofocus" id="cpu_search" placeholder="type in processor">
 					@foreach($cpus as $cpu)
 						<label class="radio">
 						<input type="radio" name="cpu" value="{{ $cpu->id }}" data-price="{{ $cpu->price }}"/>
@@ -218,7 +218,7 @@
 					</label>
 				</div>
 				<div class="form-inline">
-					<label class="pcmci_slot" id="pcmci_slot">PCMCI slot good? &nbsp;</label>
+					<label class="pcmci_slot_condition" id="pcmci_slot">PCMCI slot good? &nbsp;</label>
 					<label class="radio">
 						<input type="radio" name="pcmci_slot" value="good"/>
 						Good&nbsp;
@@ -417,9 +417,10 @@
 		<br>
 		<div class="well">
 			
-	  		<br>
+			<br>
 	  		<div class="input-group">
-	  			<input class="form-control" name="high_price" id="disabledInput" type="text" disabled>
+	  			
+	  			<input class="form-control" type="text" name="high_price" id="disabledInput">
 			</div>
 	  		<div class="input-group" id="buy_back_cost_display">
 		  		<span class="input-group-addon">Buy Back Cost &nbsp; $</span>
@@ -483,6 +484,7 @@
 
 				   price = (ram + cpu + hdd + manufacturer);
 				   $('#disabledInput').attr('placeholder', price);
+				   $('#disabledInput').attr('value', price);
 				   $('#price-box').html("<p>HIGH PRICE: " + price + "</p>");
 			}
 		});
