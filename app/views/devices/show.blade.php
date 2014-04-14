@@ -7,9 +7,9 @@
 
 @section('style')
 <style>
-#box {
-	width: 800px;
-}
+	#box {
+		width: 800px;
+	}
 </style>
 
 @stop
@@ -27,6 +27,8 @@
 	Model: {{{ $device->model }}}</b>
 	<br>
 	<br>
+	
+	<button type="button" href="action={{action('DevicesController@edit', $device->id)  }}" class="btn btn-primary btn-lg btn-block">Open Device to Refurbish</button>
 
 	<center><table class="table table-bordered table-striped">
 		<thead>

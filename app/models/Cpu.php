@@ -6,7 +6,9 @@ class Cpu extends Eloquent {
 	
 	public function devices(){
 
-		return $this->belongsToMany('Device');
+	
+	return $this->belongsToMany('Device', 'device_cpu');
+
 	}
 
 }
