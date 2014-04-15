@@ -101,23 +101,15 @@ class DevicesController extends \BaseController {
 			$device->acquisition_cost = Input::get('acquisition_cost');
 			$device->acquisition_comments = Input::get('acquisition_comments');
 			$device->acquisition_grade_abc = Input::get('acquisition_grade_abc');
-			
 			$device->high_price = Input::get('high_price');
 
-			$device->manufacturer = Input::get('manufacturer');
-
-			$cpu = Cpu::findOrFail(Input::get('cpu'));
-			$cpu->save();
-
-			$ram = Ram::findOrFail(Input::get('ram'));
-			$ram->save();
-
-			$hdd = Hdd::findorFail(Input::get('hdd'));
-			$hdd->save();
-
 			$device->save();
-
-
+			
+			$device->manufacturers()->sync(array(Input::get('manufacturer')));
+			$device->cpus()->sync(array(Input::get('cpu'))); 
+			$device->rams()->sync(array(Input::get('ram')));
+			$device->hdds()->sync(array(Input::get('hdd')));
+			
 			return Redirect::action('DevicesController@index');
 		}
 	}
