@@ -13,16 +13,22 @@
 @section('content')
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-3 col-md-offset-3">
+		<div class="col-md-2">
 			<a href="{{{ action('UsersController@index') }}}">Users</a>
 		</div>
-		<div class="col-md-3">
-			<a href="{{{ action('DevicesController@index') }}}">Prices</a>
+		<div class="col-md-2">
+			<a href="{{{ action('HddsController@index') }}}">Hard Drives</a>
+		</div>
+		<div class="col-md-2">
+			<a href="{{{ action('ManufacturersController@index') }}}">Manufacturers</a>
+		</div>
+		<div class="col-md-2">
+			<a href="{{{ action('RamsController@index') }}}">Memory</a>
+		</div>
+		<div class="col-md-2">
+			<a href="{{{ action('CpusController@index') }}}">Processors</a>
 		</div>
 	</div>
-	<br>
-	<br>
-	<a href="{{{ action('HomeController@logout') }}}">Logout</a>
 </div>
 
 
