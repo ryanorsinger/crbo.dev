@@ -9,9 +9,18 @@
 #price-box	
 { 
 	position:fixed; top:2%; right:2%;
-	background-color: #FF0000;
+	background-color: #7bd63e;
+	color: #FFF;
 	width: 200px;
 	height: 50px;
+	text-align: center;
+	border-radius: 25%;
+}
+
+#price-text
+{
+	vertical-align: middle;
+	font-size: 1.5em;
 }
 </style>
 @stop
@@ -454,7 +463,7 @@
 </div>
 
 <div id="price-box">
-	<p>HIGH PRICE: 0<p>
+	<span id="price-text">HIGH PRICE: 0</span>
 </div>
 
 
@@ -488,7 +497,7 @@
 				   price = (ram + cpu + hdd + manufacturer);
 
 				   $('#disabledInput').attr('value', price);
-				   $('#price-box').html("<p>HIGH PRICE: " + price + "</p>");
+				   $('#price-box').html("<span id='price-text'>HIGH PRICE: " + price + "</span>");
 			}
 		});
 
