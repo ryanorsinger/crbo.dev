@@ -28,7 +28,6 @@
 
 	<br>
 	<br>
-
 	<center><table class="table table-bordered table-striped">
 		<thead>
 			<th>Field</th>
@@ -385,6 +384,21 @@
 					</label>
 				</div></td>
 			</tr>
+			<tr>
+				<td>Grade of Machine</td>
+				<td>{{{ $device->acquisition_grade_abc }}}</td>
+				<td><div class="form-inline">
+					<label class="refurb_access_bios" id="refurb_grade_abc"></label>
+					<label class="radio">
+						<input type="radio" name="refurb_grade_abc" value="confirm"/>
+						&nbsp;Confirm&nbsp;
+					</label>
+					<label class="radio">
+						<input type="radio" name="refurb_grade_abc" value="disagree"/>
+						&nbsp;Disagree&nbsp;
+					</label>
+				</div></td>
+			</tr>
 	</table></center>
 </div>
 <div class="container">
@@ -394,89 +408,102 @@
 
 		<div class="col-md-10">
 			<div class="well">
+				<div class="form-inline">
+					<label class="refurb_access_bios" id="refurb_test_bios_battery">Test Bios Battery Results? &nbsp; </label>
+					<label class="radio">
+						<input type="radio" name="refurb_test_bios_battery" value="pass"/>
+						&nbsp;Pass&nbsp;
+					</label>
+					<label class="radio">
+						<input type="radio" name="refurb_test_bios_battery" value="fail"/>
+						&nbsp;Fail&nbsp;
+					</label>
+				</div>
+				<br>
+				<div class="well form-horizontal">
+			  		<div class="form-group">
+						<label for="inputOStype" class="col-sm-2 control-label">OS License Type</label>
+						<div class="col-sm-10">
+				  		<input name="replacement_part_1" type="text" class="form-control" id="inputOStype" placeholder="OS License Type">
+						</div>
+			  		</div>
+			  		<div class="form-group">
+						<label for="inputOScost" class="col-sm-2 control-label">OS License Cost</label>
+						<div class="col-sm-10">
+				  		<input name="replacement_part_1_cost" type="text" class="form-control" id="inputOScost" placeholder="OS License Cost">
+						</div>
+			  		</div>
+			  		<hr>
+			  		<div class="form-group">
+						<label for="inputOStype" class="col-sm-2 control-label">Additional Part</label>
+						<div class="col-sm-10">
+				  		<input name="replacement_part_2" type="text" class="form-control" id="inputOStype" placeholder="Additional Part">
+						</div>
+			  		</div>
+			  		<div class="form-group">
+						<label for="inputOScost" class="col-sm-2 control-label">Part Cost</label>
+						<div class="col-sm-10">
+				  		<input name="replacement_part_2_cost" type="text" class="form-control" id="inputOScost" placeholder="Part cost">
+						</div>
+			  		</div>
+			  		<br>
+			  		<div class="form-group">
+						<label for="inputOStype" class="col-sm-2 control-label">Additional Part</label>
+						<div class="col-sm-10">
+				  		<input name="replacement_part_3" type="text" class="form-control" id="inputOStype" placeholder="Additional Part">
+						</div>
+			  		</div>
+			  		<div class="form-group">
+						<label for="inputOScost" class="col-sm-2 control-label">Part Cost</label>
+						<div class="col-sm-10">
+				  		<input name="replacement_part_3_cost" type="text" class="form-control" id="inputOScost" placeholder="Part Cost">
+						</div>
+			  		</div>
+			  		<br>
+			  		<div class="form-group">
+						<label for="inputOStype" class="col-sm-2 control-label">Additional Part</label>
+						<div class="col-sm-10">
+				  		<input name="replacement_part_4" type="text" class="form-control" id="inputOStype" placeholder="Additional Part">
+						</div>
+			  		</div>
+			  		<div class="form-group">
+						<label for="inputOScost" class="col-sm-2 control-label">Part Cost</label>
+						<div class="col-sm-10">
+				  		<input name="replacement_part_4_cost" type="text" class="form-control" id="inputOScost" placeholder="Part Cost">
+						</div>
+			  		</div>
+				</div>
+			<label for="refurb-comments">Refurbish Technician Comments:</label>	
+			<textarea name="refurb_comments" id="refurb-comments" class="form-control" rows="3"></textarea>
+			
 
+			<br>
+
+			<label for="exampleInputEmail1">Refurbish Status</label>
+				<select class="form-control">
+				  <option>Ready to Refurbish</option>
+				  <option>Processing</option>
+				  <option>e-parts</option>
+				  <option>Scrap</option>
+				  <option>Done</option>
+				</select>
+
+			<hr>
+
+			<button type="button" class="btn btn-primary btn-lg btn-block">Submit Refurbish</button>
+			<br>
+			<br>
 
 			</div>
 		</div>
 
+
 		<div class="col-md-1">
 		</div>
 	</row>
+	<row></row>
 </div>
 
-
-
-			<tr>
-				<td>Purchased By:</td>
-				<td>{{{ $device->purchased_by }}}</td>
-			</tr>
-			<tr>
-				<td>Acquisition Cost:</td>
-				<td>{{{ $device->acquisition_cost }}}</td>
-			</tr>
-			<tr>
-				<td>Acquisition Comments:</td>
-				<td>{{{ $device->acquisiton_comments }}}</td>
-			</tr>
-			<tr>
-				<td>Acqusition Grade:</td>
-				<td>{{{ $device->acquisiton_grade_abc }}}</td>
-				<td>{{{ $device->refurb_grade_abc }}}</td>
-			</tr>
-			<tr>
-				<td>Bios Battery Test:</td>
-				<td>{{{ $device->refurb_test_bios_battery }}}</td>
-			</tr>
-			<tr>
-				<td>ID:</td>
-				<td>{{{ $device->refurb_optical_drive_condition }}}</td>
-			</tr>
-			<tr>
-				<td>ID:</td>
-				<td>{{{ $device->refurb_refurbished_by }}}</td>
-			</tr>
-			<tr>
-				<td>ID:</td>
-				<td>{{{ $device->replacement_part_1 }}}</td>
-			</tr>
-			<tr>
-				<td>ID:</td>
-				<td>{{{ $device->replacement_part_1_cost }}}</td>
-			</tr>
-			<tr>
-				<td>ID:</td>
-				<td>{{{ $device->replacement_part_2 }}}</td>
-			</tr>
-			<tr>
-				<td>ID:</td>
-				<td>{{{ $device->replacement_part_2_cost }}}</td>
-			</tr>
-			<tr>
-				<td>ID:</td>
-				<td>{{{ $device->replacement_part_3 }}}</td>
-			</tr>
-			<tr>
-				<td>ID:</td>
-				<td>{{{ $device->replacement_part_3_cost }}}</td>
-			</tr>
-			<tr>
-				<td>ID:</td>
-				<td>{{{ $device->replacement_part_4 }}}</td>
-			</tr>
-			<tr>
-				<td>ID:</td>
-				<td>{{{ $device->replacement_part_4_cost }}}</td>
-			</tr>
-			<tr>
-				<td>ID:</td>
-				<td>{{{ $device->refurbisher_comments }}}</td>
-			</tr>
-			<tr>
-				<td>ID:</td>
-				<td>{{{ $device->refurb_cost }}}</td>
-			</tr>
-	</table></center>
-</div>
 
 
 @stop
