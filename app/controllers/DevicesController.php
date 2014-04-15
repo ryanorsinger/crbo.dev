@@ -104,11 +104,8 @@ class DevicesController extends \BaseController {
 			$device->save();
 			
 			$device->manufacturers()->sync(array(Input::get('manufacturer')));
-			
 			$device->cpus()->sync(array(Input::get('cpu'))); 
-
-			$device->rams()->sync(array(Input::get('ram'))); 
-
+			$device->rams()->sync(array(Input::get('ram')));
 			$device->hdds()->sync(array(Input::get('hdd')));
 			
 			return Redirect::action('DevicesController@index');
