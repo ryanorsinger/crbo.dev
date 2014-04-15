@@ -9,23 +9,14 @@ class ManufacturersController extends \BaseController {
 	 */
 	public function index()
 	{
-		//$manufacturers = Manufacturer::all();
-		$manufacturers = DB::table('manufacturers')->get();
+		$manufacturers = Manufacturer::all();
 
-		// $search = Input::get('search');
-		// $manufacturers = Manufacturer::all();
 
-		// if (is_null($search))
-		// {
-		// 	$posts = $query->paginate(3);
-		// } else {
-		// 	$posts = $query->where('title', 'LIKE', "%{$search}%")
-		// 				   ->orWhere('body', 'LIKE', "%{$search}%")
-		// 				   ->paginate(3);
-		// }
+		$data = array(
+			'manufacturers' => $manufacturers, 
+			);
 
-		// return View::make('posts.index')->with('manufacturers', $manufacturers);
-		// return View::share('manufacturers', $manufacturers);
+		return View::make('manufacturers/index')->with($data);
 		
 	}
 
@@ -46,13 +37,18 @@ class ManufacturersController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$manufacturer = new Manufacturer();
+		$manufacturer->company = Input::get('company');
+		$manufacturer->price = Input::get('price');
+		$manufacturer->save();
+
+		return Redirect::action('ManufacturersController@index');
 	}
 
 	/**
 	 * Display the specified resource.
 	 *
-	 * @param  int  $id
+	 * @pamanufacturer  int  $id
 	 * @return Response
 	 */
 	public function show($id)
@@ -63,34 +59,43 @@ class ManufacturersController extends \BaseController {
 	/**
 	 * Show the form for editing the specified resource.
 	 *
-	 * @param  int  $id
+	 * @pamanufacturer  int  $id
 	 * @return Response
 	 */
 	public function edit($id)
 	{
-		//
+		$manufacturer = Manufacturer::find($id);
+		
+		return View::make('manufacturers/edit')->with('manufacturer', $manufacturer);
 	}
 
 	/**
 	 * Update the specified resource in storage.
 	 *
-	 * @param  int  $id
+	 * @pamanufacturer  int  $id
 	 * @return Response
 	 */
 	public function update($id)
 	{
-		//
+		$manufacturer = Manufacturer::find($id);
+		
+		$manufacturer->company = Input::get('company');
+		$manufacturer->price = Input::get('price');
+		$manufacturer->save();
+
+		return Redirect::action('ManufacturersController@index');
 	}
 
 	/**
 	 * Remove the specified resource from storage.
 	 *
-	 * @param  int  $id
+	 * @pamanufacturer  int  $id
 	 * @return Response
 	 */
 	public function destroy($id)
 	{
-		//
+		Manufacturer::find($id)->delete();
+		return Redirect::action('ManufacturersController@index');
 	}
 
 }

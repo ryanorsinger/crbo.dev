@@ -9,7 +9,14 @@ class HddsController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$hdds = Hdd::all();
+
+
+		$data = array(
+			'hdds' => $hdds, 
+			);
+
+		return View::make('hdds/index')->with($data);
 	}
 
 	/**
@@ -29,7 +36,14 @@ class HddsController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$hdd = new Hdd();
+		$hdd->form_factor = Input::get('form_factor');
+		$hdd->interface = Input::get('interface');
+		$hdd->capacity = Input::get('capacity');
+		$hdd->price = Input::get('price');
+		$hdd->save();
+
+		return Redirect::action('HddsController@index');
 	}
 
 	/**
@@ -51,7 +65,9 @@ class HddsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$hdd = Hdd::find($id);
+		
+		return View::make('hdds/edit')->with('hdd', $hdd);
 	}
 
 	/**
@@ -62,7 +78,15 @@ class HddsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$hdd = Hdd::find($id);
+		
+		$hdd->form_factor = Input::get('form_factor');
+		$hdd->interface = Input::get('interface');
+		$hdd->capacity = Input::get('capacity');
+		$hdd->price = Input::get('price');
+		$hdd->save();
+
+		return Redirect::action('HddsController@index');
 	}
 
 	/**
@@ -73,7 +97,8 @@ class HddsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		Hdd::find($id)->delete();
+		return Redirect::action('HddsController@index');
 	}
 
 }

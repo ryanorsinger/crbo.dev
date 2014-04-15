@@ -9,7 +9,14 @@ class CpusController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$cpus = Cpu::all();
+
+
+		$data = array(
+			'cpus' => $cpus, 
+			);
+
+		return View::make('cpus/index')->with($data);
 	}
 
 	/**
@@ -29,7 +36,15 @@ class CpusController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$cpu = new Cpu();
+		$cpu->make = Input::get('make');
+		$cpu->model = Input::get('model');
+		$cpu->number_of_cores = Input::get('number_of_cores');
+		$cpu->speed = Input::get('speed');
+		$cpu->price = Input::get('price');
+		$cpu->save();
+
+		return Redirect::action('CpusController@index');
 	}
 
 	/**
@@ -51,7 +66,9 @@ class CpusController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$cpu = Cpu::find($id);
+		
+		return View::make('cpus/edit')->with('cpu', $cpu);
 	}
 
 	/**
@@ -62,7 +79,17 @@ class CpusController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$cpu = Cpu::find($id);
+		
+		$cpu->make = Input::get('make');
+		$cpu->model = Input::get('model');
+		$cpu->number_of_cores = Input::get('number_of_cores');
+		$cpu->speed = Input::get('speed');
+		$cpu->price = Input::get('price');
+		$cpu->save();
+
+		return Redirect::action('CpusController@index');
+		
 	}
 
 	/**
@@ -73,7 +100,8 @@ class CpusController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		Cpu::find($id)->delete();
+		return Redirect::action('CpusController@index');
 	}
 
 }
