@@ -22,6 +22,12 @@
         margin-top: 5%;
       }
 
+      #user-display {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        font-style: italic;
+      }
+
     </style>
     
 
@@ -44,10 +50,14 @@
 
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav" id="user-display">
+
+              <!--- Show username if logged in -->
+              @if (Auth::check())
               <li>
-                  
+                  <span class="glyphicon glyphicon-user"></span> &nbsp;{{ Auth::user()->username }}
               </li>
+              @endif
             </ul>
             <ul class="nav navbar-nav navbar-right">
               

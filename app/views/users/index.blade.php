@@ -21,15 +21,19 @@
 			<th>Role</th>
 			<th>Created</th>
 			<th>Last Updated</th>
+			<th></th>
 		</thead>
 		<tbody>
 			@foreach ($users as $user)
 			<tr>
-				<td><a href=" {{{ action('UsersController@show', $user->id) }}}"> {{{ $user->id }}} </a></td>
-				<td><a href=" {{{ action('UsersController@show', $user->id) }}}"> {{{ $user->username }}}</a></td>
+				<td><a href=" {{{ action('UsersController@edit', $user->id) }}}"> {{{ $user->id }}} </a></td>
+				<td><a href=" {{{ action('UsersController@edit', $user->id) }}}"> {{{ $user->username }}}</a></td>
 				<td>{{{ $user->role }}}</td>
 				<td>{{{ $user->created_at->setTimezone('America/Chicago')->format('m / d') }}}</td>
 				<td>{{{ $user->updated_at->setTimezone('America/Chicago')->format('m / d') }}}</td>
+				<td><center>{{ Form::open(array('action' => array('UsersController@destroy', $user->id), 'method' => 'DELETE')) }}
+					<button class="btn btn-danger" type="submit">Delete User</button>
+				{{ Form::close() }}</center></td>
 			</tr>
 			@endforeach
 		</tbody>
