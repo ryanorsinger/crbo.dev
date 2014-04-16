@@ -16,15 +16,24 @@
 
 @section('content')
 <div class="container-fluid" id="box">
-	<b>ID: {{{ $device->id }}} &nbsp;
+	<row>
+		<b>ID: {{{ $device->id }}} &nbsp;
 
-	Acquisition Type: {{{ $device->acquisition_type }}} &nbsp;
+		Acquisition Type: {{{ $device->acquisition_type }}} &nbsp;
 
-	Hardware Type: {{{ $device->hardware_type }}} &nbsp;
+		Hardware Type: {{{ $device->hardware_type }}} &nbsp;
 
-	Manufacturer: {{{ $device->manufacturer }}} &nbsp;
+		Manufacturer: {{{ $device->manufacturer }}} &nbsp;
 
-	Model: {{{ $device->model }}}</b>
+		Model: {{{ $device->model }}}</b>
+	</row>
+	<row>
+		<br>
+		Acquisition price: $ {{{ $device->acquisition_cost }}} &nbsp;
+		<br>
+		Acquisition comments: {{{ $device->acquisition_comments }}}
+
+	</row>
 
 	<br>
 	<br>
@@ -194,13 +203,13 @@
 				<td>Network Port:</td>
 				<td>{{{ $device->network_port }}}</td>
 				<td><div class="form-inline">
-					<label class="refurb_access_bios" id="refurb_network_slot"></label>
+					<label class="refurb_access_bios" id="refurb_network_port"></label>
 					<label class="radio">
-						<input type="radio" name="refurb_network_slot" value="confirm"/>
+						<input type="radio" name="refurb_network_port" value="confirm"/>
 						&nbsp;Confirm&nbsp;
 					</label>
 					<label class="radio">
-						<input type="radio" name="refurb_network_slot" value="disagree"/>
+						<input type="radio" name="refurb_network_port" value="disagree"/>
 						&nbsp;Disagree&nbsp;
 					</label>
 				</div></td>
@@ -373,13 +382,13 @@
 				<td>Are Fans Loud?:</td>
 				<td>{{{ $device->loud_fans }}}</td>
 				<td><div class="form-inline">
-					<label class="refurb_access_bios" id="refurb_fans_run_loud"></label>
+					<label class="refurb_access_bios" id="refurb_loud_fans"></label>
 					<label class="radio">
-						<input type="radio" name="refurb_fans_run_loud" value="confirm"/>
+						<input type="radio" name="refurb_loud_fans" value="confirm"/>
 						&nbsp;Confirm&nbsp;
 					</label>
 					<label class="radio">
-						<input type="radio" name="refurb_fans_run_loud" value="disagree"/>
+						<input type="radio" name="refurb_loud_fans" value="disagree"/>
 						&nbsp;Disagree&nbsp;
 					</label>
 				</div></td>
@@ -419,6 +428,15 @@
 						&nbsp;Fail&nbsp;
 					</label>
 				</div>
+				<hr>
+				<label for="exampleInputEmail1">Refurbish Status</label>
+					<select name="status" class="form-control">
+					  <option name="status" value="ready">Ready to Refurbish</option>
+					  <option name="status" value="processing">Processing</option>
+					  <option name="status" value="e-parts">e-parts</option>
+					  <option name="status" value="scrap">Scrap</option>
+					  <option name="status" value="done">Done</option>
+					</select>
 				<br>
 				<div class="well form-horizontal">
 			  		<div class="form-group">
@@ -472,25 +490,30 @@
 				  		<input name="replacement_part_4_cost" type="text" class="form-control" id="inputOScost" placeholder="Part Cost">
 						</div>
 			  		</div>
+			  		<hr>
+			  		<h4> Acquisition Cost: ${{{ $device->acquisition_cost }}} <h4>
+			  		<h4 id="refurbish_cost" name="refurbish_cost"> Refurbish Cost: 0 </h4>
+			  		<h4 id="total_cost" name="total_cost"> Total Cost: 0 </h4>
+
 				</div>
 			<label for="refurb-comments">Refurbish Technician Comments:</label>	
 			<textarea name="refurb_comments" id="refurb-comments" class="form-control" rows="3"></textarea>
-			
-
-			<br>
-
-			<label for="exampleInputEmail1">Refurbish Status</label>
-				<select class="form-control">
-				  <option>Ready to Refurbish</option>
-				  <option>Processing</option>
-				  <option>e-parts</option>
-				  <option>Scrap</option>
-				  <option>Done</option>
-				</select>
-
+		
 			<hr>
 
+<!-- 
+			<div class="input-group" id="refurbish_cost_div">
+		  		<span class="input-group-addon">Refurbish Cost &nbsp; $</span>
+		  		<label for="refurb_cost"></label>
+		  		<input type="text" name="refurb_cost" id="refurb_cost" class="form-control">
+		  		<span class="input-group-addon">.00</span>
+			</div> -->
+
+
+			<a href="{{ action('DevicesController@update', $device->id) }}">
 			<button type="button" class="btn btn-primary btn-lg btn-block">Submit Refurbish</button>
+			</a>
+			{{ Form::close() }}
 			<br>
 			<br>
 
@@ -505,5 +528,8 @@
 </div>
 
 
+
+@stop
+@section('bottom-script')
 
 @stop
