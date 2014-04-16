@@ -16,19 +16,29 @@
 
 @section('content')
 <div class="container-fluid" id="box">
-	<b>ID: {{{ $device->id }}} &nbsp;
+	<row>
+		<b>ID: {{{ $device->id }}} &nbsp;
 
-	Acquisition Type: {{{ $device->acquisition_type }}} &nbsp;
+		Acquisition Type: {{{ $device->acquisition_type }}} &nbsp;
 
-	Hardware Type: {{{ $device->hardware_type }}} &nbsp;
+		Hardware Type: {{{ $device->hardware_type }}} &nbsp;
 
-	Manufacturer: {{{ $device->manufacturer }}} &nbsp;
+		Manufacturer: {{{ $device->manufacturer }}} &nbsp;
 
-	Model: {{{ $device->model }}}</b>
+		Model: {{{ $device->model }}}</b>
+	</row>
+	<row>
+	<br>
+		Acquisition price: $ {{{ $device->acquisition_cost }}} &nbsp;
+	<br>
+		Acquisition comments: {{{ $device->acquisition_comments }}}
+	</row>
 	<br>
 	<br>
 	
-	<button type="button" href="action={{action('DevicesController@edit', $device->id)  }}" class="btn btn-primary btn-lg btn-block">Open Device to Refurbish</button>
+	<a href="{{ action('DevicesController@edit', $device->id)  }}">
+	<button type="button" class="btn btn-primary btn-lg btn-block">Open Device to Refurbish</button>
+	</a>
 
 	<center><table class="table table-bordered table-striped">
 		<thead>
