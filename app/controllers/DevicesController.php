@@ -103,9 +103,11 @@ class DevicesController extends \BaseController {
 			$device->acquisition_grade_abc = Input::get('acquisition_grade_abc');
 			$device->high_price = Input::get('high_price');
 
+			$device->manufacturer = (Input::get('manufacturer'));
+
 			$device->save();
 			
-			$device->manufacturers()->sync(array(Input::get('manufacturer')));
+			//$device->manufacturers()->sync(array(Input::get('manufacturer')));
 			$device->cpus()->sync(array(Input::get('cpu'))); 
 			$device->rams()->sync(array(Input::get('ram')));
 			$device->hdds()->sync(array(Input::get('hdd')));
