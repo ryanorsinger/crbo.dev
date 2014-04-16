@@ -14,22 +14,21 @@ class HomeController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
-
-	public function showHome()
+	public function showLogin()
 	{
 		if (Auth::check()) 
 		{
-			return View::make('home');
-		}	
-		else 
+			return Redirect::action('HomeController@showHome');
+		}
+		else
 		{
-			return Redirect::action('HomeController@showLogin');
+			return View::make('login');
 		}
 	}
 
-	public function showLogin()
+	public function showHome()
 	{
-		return View::make('login');
+		return View::make('home');	
 	}
 
 	public function doLogin()

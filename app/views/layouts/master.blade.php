@@ -9,56 +9,84 @@
     @yield('top-script')
     <!-- Bootstrap -->
     <link rel="stylesheet" href="/css/bootstrap.css">
+    <style>
+
+      .navbar-default .navbar-nav > li > a {
+        color: #3A8D01;
+        font-size: 1.2em;
+      }
+
+      #main-container {
+        margin-right: 10%;
+        margin-left: 10%;
+        margin-top: 5%;
+      }
+
+    </style>
     
 
     @yield('style')
 
   </head>
   <body>
-  <br>
+    <div class="container-fluid" id="main-container">
   
-  <div class="row">
-    <div class="col-md-3 col-md-offset-2">
-      <a href="/"><img src="/img/210Geek_logo.png"></a>
+      <div class="row">
+        <div class="col-md-3">
+          <a href="/"><img src="/img/210Geek_logo.png"></a>
+        </div>
+      </div>
+
+      <br>
+
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li>
+                  
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              
+              <!--- Navbar links for Admin -->
+              @if (Auth::check() && Auth::user()->role == "admin")
+              <li><a href=" {{{ action('HomeController@showAdmin') }}} ">Admin Panel</a>
+              <li><a href=" {{{ action('HomeController@showHome') }}} ">Employee Panel</a></li>
+              <li><a href="{{{ action('HomeController@logout') }}}">Logout</a></li>
+
+              <!--- Navbar links for Employee -->
+              @elseif (Auth::check())
+              <li>
+                  <a href=" {{{ action('HomeController@showHome') }}} " class="btn-lg">
+                    <span class="glyphicon glyphicon-home"></span>
+                  </a>
+              </li>
+              <li><a href="{{{ action('HomeController@logout') }}}">Logout</a></li>
+
+              <!--- Navbar links for non-authenticated -->
+              @else
+              <li><a href="{{{ action('HomeController@showLogin') }}}">Login</a></li>        
+              @endif
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+
+          @if (Session::has('successMessage'))
+              <div class="alert alert-success message">{{{ Session::get('successMessage') }}}</div>
+          @endif
+          @if (Session::has('errorMessage'))
+              <div class="alert alert-danger message">{{{ Session::get('errorMessage') }}}</div>
+          @endif
+
+
+          @yield('content')
+
     </div>
-  </div>
-
-  <br>
-
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li>
-            <a href="/" class="btn-lg">
-              <span class="glyphicon glyphicon-home"></span>
-            </a>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        @if (Auth::check() && Auth::user()->role == "admin")
-        <li><a href=" {{{ action('HomeController@showAdmin') }}} ">Admin Panel</a>
-        @endif
-        <li><a href="{{{ action('HomeController@logout') }}}">Logout</a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-    @if (Session::has('successMessage'))
-        <div class="alert alert-success message">{{{ Session::get('successMessage') }}}</div>
-    @endif
-    @if (Session::has('errorMessage'))
-        <div class="alert alert-danger message">{{{ Session::get('errorMessage') }}}</div>
-    @endif
-
-
-    @yield('content')
-
-
-</body>
+  </body>
 
   <!-- SCRIPTS -->
   <script src="/js/jquery-1.10.2.min.js"></script>

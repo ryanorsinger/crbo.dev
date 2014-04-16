@@ -20,12 +20,6 @@
 			<a href="{{{ action('DevicesController@index') }}}"><img src="/img/refurbish.png"></a>
 		</div>
 	</div>
-			@if (Auth::user()->role == "admin")
-			<a href=" {{{ action('HomeController@showAdmin') }}} ">Admin Panel</a>
-			@endif
-	<br>
-	<br>
-	<a href="{{{ action('HomeController@logout') }}}">Logout</a>
 </div>
 
 

@@ -11,7 +11,11 @@
 |
 */
 
-Route::get('/', 'HomeController@showHome');
+Route::get('/', 'HomeController@showLogin');
+
+Route::post('/', 'HomeController@doLogin');
+
+Route::get('/login', 'HomeController@showLogin');
 
 Route::resource('/devices', 'DevicesController');
 
@@ -25,9 +29,7 @@ Route::resource('/manufacturers', 'ManufacturersController');
 
 Route::resource('/users', 'UsersController');
 
-Route::get('/login', 'HomeController@showLogin');
-
-Route::post('/login', 'HomeController@doLogin');
+Route::get('/home', 'HomeController@showHome');
 
 Route::get('/logout', 'HomeController@logout');
 
