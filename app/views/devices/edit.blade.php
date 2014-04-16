@@ -10,6 +10,8 @@
 	#box {
 		width: 800px;
 	}
+
+
 </style>
 
 @stop
@@ -29,7 +31,7 @@
 	</row>
 	<row>
 		<br>
-		Acquisition price: $ {{{ $device->acquisition_cost }}} &nbsp;
+		<p>Acquisition price: $ {{{ $device->acquisition_cost }}} &nbsp;</p>
 		<br>
 		Acquisition comments: {{{ $device->acquisition_comments }}}
 
@@ -42,7 +44,7 @@
 			<th>Field</th>
 			<th>Buyback</th>
 			<th>Refurbish Technician Confirm or Disagree</th>
-			{{ Form::model($device, (array('action' => array('DevicesController@update', $device->id), 'method' => 'put', 'class' => 'form-horizontal'))) }}
+			{{ Form::model($device, (array('action' => array('DevicesController@update', $device->id), 'method' => 'put', 'id' => 'refurbPricer', 'class' => 'form-horizontal'))) }}
 		</thead>
 		<tbody>
 			<tr>
@@ -440,59 +442,59 @@
 				<br>
 				<div class="well form-horizontal">
 			  		<div class="form-group">
-						<label for="inputOStype" class="col-sm-2 control-label">OS License Type</label>
+						<label for="replacement_part_1" class="col-sm-2 control-label">OS License Type</label>
 						<div class="col-sm-10">
 				  		<input name="replacement_part_1" type="text" class="form-control" id="inputOStype" placeholder="OS License Type">
 						</div>
 			  		</div>
 			  		<div class="form-group">
-						<label for="inputOScost" class="col-sm-2 control-label">OS License Cost</label>
+						<label for="replacement_part_1_cost" class="col-sm-2 control-label">OS License Cost</label>
 						<div class="col-sm-10">
-				  		<input name="replacement_part_1_cost" type="text" class="form-control" id="inputOScost" placeholder="OS License Cost">
+				  		<input name="replacement_part_1_cost" type="text" class="form-control refurbPricer" id="inputOScost" placeholder="OS License Cost">
 						</div>
 			  		</div>
 			  		<hr>
 			  		<div class="form-group">
-						<label for="inputOStype" class="col-sm-2 control-label">Additional Part</label>
+						<label for="replacement_part_2" class="col-sm-2 control-label">Additional Part</label>
 						<div class="col-sm-10">
 				  		<input name="replacement_part_2" type="text" class="form-control" id="inputOStype" placeholder="Additional Part">
 						</div>
 			  		</div>
 			  		<div class="form-group">
-						<label for="inputOScost" class="col-sm-2 control-label">Part Cost</label>
+						<label for="replacement_part_2_cost" class="col-sm-2 control-label">Part Cost</label>
 						<div class="col-sm-10">
-				  		<input name="replacement_part_2_cost" type="text" class="form-control" id="inputOScost" placeholder="Part cost">
+				  		<input name="replacement_part_2_cost" type="text" class="form-control refurbPricer" id="inputOScost" placeholder="Part cost">
 						</div>
 			  		</div>
 			  		<br>
 			  		<div class="form-group">
-						<label for="inputOStype" class="col-sm-2 control-label">Additional Part</label>
+						<label for="replacement_part_3" class="col-sm-2 control-label">Additional Part</label>
 						<div class="col-sm-10">
 				  		<input name="replacement_part_3" type="text" class="form-control" id="inputOStype" placeholder="Additional Part">
 						</div>
 			  		</div>
 			  		<div class="form-group">
-						<label for="inputOScost" class="col-sm-2 control-label">Part Cost</label>
+						<label for="replacement_part_3_cost" class="col-sm-2 control-label">Part Cost</label>
 						<div class="col-sm-10">
-				  		<input name="replacement_part_3_cost" type="text" class="form-control" id="inputOScost" placeholder="Part Cost">
+				  		<input name="replacement_part_3_cost" type="text" class="form-control refurbPricer" id="inputOScost" placeholder="Part Cost">
 						</div>
 			  		</div>
 			  		<br>
 			  		<div class="form-group">
-						<label for="inputOStype" class="col-sm-2 control-label">Additional Part</label>
+						<label for="replacement_part_4" class="col-sm-2 control-label">Additional Part</label>
 						<div class="col-sm-10">
 				  		<input name="replacement_part_4" type="text" class="form-control" id="inputOStype" placeholder="Additional Part">
 						</div>
 			  		</div>
 			  		<div class="form-group">
-						<label for="inputOScost" class="col-sm-2 control-label">Part Cost</label>
+						<label for="replacement_part_4_cost" class="col-sm-2 control-label">Part Cost</label>
 						<div class="col-sm-10">
-				  		<input name="replacement_part_4_cost" type="text" class="form-control" id="inputOScost" placeholder="Part Cost">
+				  		<input name="replacement_part_4_cost" type="text" class="form-control refurbPricer" id="inputOScost" placeholder="Part Cost">
 						</div>
 			  		</div>
 			  		<hr>
-			  		<h4> Acquisition Cost: ${{{ $device->acquisition_cost }}} <h4>
-			  		<h4 id="refurbish_cost" name="refurbish_cost"> Refurbish Cost: 0 </h4>
+			  		<h4 id="acquisition_cost" name="acquisition_cost" value="{{ $device->acquisition_cost }}" data-price="{{ $device->acquisition_cost }}"> Acquisition Cost: ${{{ $device->acquisition_cost }}} <h4>
+			  		<h4 id="refurbish_cost" name="refurbish_cost" > Refurbish Cost: 0 </h4>
 			  		<h4 id="total_cost" name="total_cost"> Total Cost: 0 </h4>
 
 				</div>
@@ -501,7 +503,7 @@
 		
 			<hr>
 
-<!-- 
+			<!-- 
 			<div class="input-group" id="refurbish_cost_div">
 		  		<span class="input-group-addon">Refurbish Cost &nbsp; $</span>
 		  		<label for="refurb_cost"></label>
@@ -531,5 +533,54 @@
 
 @stop
 @section('bottom-script')
+<script>
+
+	var refurbCost = 0;
+	var totalCost = 0;
+	
+	//get the acquisition cost
+	var acquisitionCost = 0;
+	var part1Cost = 0;
+	var part2Cost = 0;
+	var part3Cost = 0;
+	var part4Cost = 0;
+
+
+
+	$('#refurbPricer input').on('change', function() {
+
+			acquisitionCost = (acquisition_cost.attributes['value'].value); 
+					
+			if ($.isNumeric($('#replacement_part_1_cost').val())
+			{
+				part1Cost = $('#replacement_part_1_cost').val();
+			}
+
+			if ($.isNumeric($('#replacement_part_2_cost').val())
+			{
+				part2Cost = $('#replacement_part_2_cost').val();
+			}
+
+			if ($.isNumeric($('#replacement_part_3_cost').val())
+			{
+				part3Cost = $('#replacement_part_3_cost').val();
+			}
+
+			if ($.isNumeric($('#replacement_part_4_cost').val())
+			{
+				part4Cost = $('#replacement_part_4_cost').val();
+			}
+
+
+			refurbCost = ( part1Cost + part2Cost + part3Cost + part4Cost);
+			totalCost = refurbCost + acquisitionCost;
+
+			//$('#disabledInput').attr('value', price);
+			//$('#price-box').html("<span id='price-text'>HIGH PRICE: " + price + "</span>");
+			
+		});
+
+
+</script>
 
 @stop
