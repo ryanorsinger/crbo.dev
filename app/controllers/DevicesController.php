@@ -55,6 +55,8 @@ class DevicesController extends \BaseController {
 	 */
 	public function store()
 	{
+		Log::info(Input::all());
+
 		// create the validator
 		$validator = Validator::make(Input::all(), Device::$rules);
 
@@ -111,7 +113,9 @@ class DevicesController extends \BaseController {
 			$device->cpus()->sync(array(Input::get('cpu'))); 
 			$device->rams()->sync(array(Input::get('ram')));
 			$device->hdds()->sync(array(Input::get('hdd')));
-			
+
+			Session::flash('successMessage', 'Successfully added device');
+		
 			return Redirect::action('DevicesController@index');
 		}
 	}
@@ -152,6 +156,8 @@ class DevicesController extends \BaseController {
 	 */
 	public function update($id)
 	{
+		Log::info(Input::all());
+
 		$device = Device::find($id);
 		// create the validator
 	    $validator = Validator::make(Input::all(), Device::$rules);
@@ -201,9 +207,9 @@ class DevicesController extends \BaseController {
 		    $device->replacement_part4 = Input::get('replacement_part_4');
 		    $device->replacement_part4_cost = Input::get('replacement_part_4_cost');
 		    $device->refurbisher_comments = Input::get('refurb_comments');
-		    $device->refurb_cost = Input::get('refurb_cost');
-		    $device->status = Input::get('status');
-		    $device->total_cost = Input::get('total_cost');
+		    // $device->refurb_cost = Input::get('refurb_cost');
+		    // $device->status = Input::get('status');
+		    // $device->total_cost = Input::get('total_cost');
 
 		    $device->save();
 
@@ -226,4 +232,5 @@ class DevicesController extends \BaseController {
 		$device->delete();
 		return "Delete request process successfull.";
 	}
+
 }
