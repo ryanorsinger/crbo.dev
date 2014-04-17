@@ -535,7 +535,8 @@
 @section('bottom-script')
 <script>
 
-	$("#replacement_part_1_cost").on('change', function() {	
+
+	$('#refurbPricer input').on('change', function() {
 
 		var refurbCost = 0;
 		var totalCost = 0;
@@ -545,52 +546,62 @@
 		var part3Cost = 0;
 		var part4Cost = 0;
 	
-		acquisitionCost = (acquisition_cost.attributes['value'].value); 
-
-		if ($.isNumeric($('#replacement_part_1_cost').val()))
-			{
-				part1Cost = $('#replacement_part_1_cost').val();
-			}
-
-		if ($.isNumeric($('#replacement_part_2_cost').val()))
-			{
-				part2Cost = $('#replacement_part_2_cost').val();
-			}
-
-		if ($.isNumeric($('#replacement_part_3_cost').val()))
-			{
-				part3Cost = $('#replacement_part_3_cost').val();
-			}
-
-		if ($.isNumeric($('#replacement_part_4_cost').val()))
-			{
-				part4Cost = $('#replacement_part_4_cost').val();
-			}
-
-		refurbCost = (part1Cost + part2Cost + part3Cost + part4Cost);
-		totalCost = (acquisitionCost + refurbCost);
-
-		console.log('part1cost: ' + part1Cost);
-		console.log('part2cost: ' + part2Cost);
-		console.log('part3cost: ' + part3Cost);
-		console.log('part4cost: ' + part4Cost);
-
-
-		console.log('refurb cost: ' + refurbCost);
-		console.log('acquisition cost: ' + acquisitionCost);
-		console.log('total cost: ' + totalCost);
-
-
-
-
-	});
-
-
-			//$('#disabledInput').attr('value', price);
-			//$('#price-box').html("<span id='price-text'>HIGH PRICE: " + price + "</span>");
-			
+		acquisition_cost = (acquisition_cost.attributes['value'].value);
+		acquisitionCost = parseInt(acquisition_cost); 
 	
+		$("#replacement_part_1_cost").on('change', function() {	
 
+			if ($.isNumeric($('#replacement_part_1_cost').val()))
+				{
+					part1_cost = $('#replacement_part_1_cost').val();
+				}
+			part1Cost = parseInt(part1_cost)	
+			
+			return part1Cost;
+		});
+
+		$("#replacement_part_2_cost").on('change', function() {	
+
+			if ($.isNumeric($('#replacement_part_2_cost').val()))
+				{
+					part1_cost = $('#replacement_part_2_cost').val();
+				}
+			part2Cost = parseInt(part2_cost)	
+
+			return part2Cost;
+			
+		});
+
+		$("#replacement_part_3_cost").on('change', function() {	
+
+			if ($.isNumeric($('#replacement_part_3_cost').val()))
+				{
+					part1_cost = $('#replacement_part_3_cost').val();
+				}
+			part3Cost = parseInt(part3_cost)	
+			return part3Cost;			
+		});
+
+		$("#replacement_part_4_cost").on('change', function() {	
+
+			if ($.isNumeric($('#replacement_part_4_cost').val()))
+				{
+					part4_cost = $('#replacement_part_4_cost').val();
+				}
+
+			part4Cost = parseInt(part4_cost)				
+			return part4Cost;			
+		});
+
+
+		refurbishCost = (part1Cost + part2Cost + part3Cost + part4Cost);
+		totalCost = parseInt(refurbishCost) + parseInt(acquisitionCost);
+
+		$('#refurbish_cost').attr('value', refurbishCost);	
+
+		$('#total_cost').attr('value', price);
+		
+	});
 
 </script>
 
