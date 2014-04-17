@@ -27,7 +27,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-3 col-md-offset-2">
-			<a href="{{{ action('DevicesController@create') }}}"><span class="glyphicon glyphicon-usd" id="buyback"> </span></a>
+			<a href="{{{ action('DevicesController@create') }}}"><img src="/img/desktop.png"></a>
 			<p>Buy / Sell</p>
 		</div>
 		<div class="col-md-3">
@@ -35,7 +35,7 @@
 			<p>Recycle</p>
 		</div>
 		<div class="col-md-3">
-			<a href="{{{ action('DevicesController@index') }}}"><span class="glyphicon glyphicon-wrench" id="refurb"> </span></a>
+			<a href="{{{ action('DevicesController@index') }}}"><img src="/img/refurb.png"></a>
 			<p>Refurbish</p>
 		</div>
 	</div>
