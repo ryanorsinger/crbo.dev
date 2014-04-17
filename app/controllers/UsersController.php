@@ -60,7 +60,9 @@ class UsersController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$user = User::find($id);
+		
+		return View::make('users/edit')->with('user', $user);
 	}
 
 	/**
@@ -71,7 +73,13 @@ class UsersController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$user = User::find($id);
+		
+		$user->username = Input::get('username');
+		$user->role = Input::get('role');
+		$user->save();
+
+		return Redirect::action('UsersController@index');
 	}
 
 	/**
@@ -82,7 +90,8 @@ class UsersController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		User::find($id)->delete();
+		return Redirect::action('UsersController@index');
 	}
 
 }

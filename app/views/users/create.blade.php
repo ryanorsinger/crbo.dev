@@ -30,10 +30,12 @@
 			{{ Form::text('password', null, array('class' => 'form-control')) }}
 		</div>
 		<div class="form-group">
-			{{ Form::label('role', 'Role') }}
-			{{ Form::radio('admin', 'Admin') }}
-			{{ Form::radio('buyback', 'Buyback') }}
-			{{ Form::radio('refurb', 'Refurb') }}
+			{{ Form::label('admin', 'Admin') }}
+			{{ Form::radio('role', 'admin') }}
+			{{ Form::label('buyback', 'Buyback') }}
+			{{ Form::radio('role', 'buyback') }}
+			{{ Form::label('refurb', 'Refurb')}}
+			{{ Form::radio('role', 'refurb') }}
 		</div>
 		<button class="btn btn-success" type="submit">Submit</button>
 		{{ Form::close() }}
