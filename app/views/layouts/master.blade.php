@@ -12,7 +12,7 @@
     <style>
 
       .navbar-default .navbar-nav > li > a {
-        color: #3A8D01;
+        color: rgb(85,85,85);
         font-size: 1.2em;
       }
 
@@ -20,6 +20,7 @@
         margin-right: 10%;
         margin-left: 10%;
         margin-top: 5%;
+        color: rgb(85,85,85);
       }
 
       #user-display {
@@ -63,9 +64,20 @@
               
               <!--- Navbar links for Admin -->
               @if (Auth::check() && Auth::user()->role == "admin")
-              <li><a href=" {{{ action('HomeController@showAdmin') }}} ">Admin Panel</a>
-              <li><a href=" {{{ action('HomeController@showHome') }}} ">Employee Panel</a></li>
-              <li><a href="{{{ action('HomeController@logout') }}}">Logout</a></li>
+              <li>
+                <a href=" {{{ action('HomeController@showHome') }}} ">
+                  <span title="Home"; class="glyphicon glyphicon-home"></span>
+                </a></li>
+              <li>
+                <a href=" {{{ action('HomeController@showAdmin') }}} ">
+                  <span title="Settings"; class="glyphicon glyphicon-cog"></span> 
+                </a>
+              </li>
+              <li>
+                <a href="{{{ action('HomeController@logout') }}}">
+                  <span title="Logout"; class="glyphicon glyphicon-log-out"></span>
+                </a>
+              </li>
 
               <!--- Navbar links for Employee -->
               @elseif (Auth::check())
@@ -78,7 +90,7 @@
 
               <!--- Navbar links for non-authenticated -->
               @else
-              <li><a href="{{{ action('HomeController@showLogin') }}}">Login</a></li>        
+              <li><a href="{{{ action('HomeController@showLogin') }}}"></a></li>        
               @endif
             </ul>
           </div><!-- /.navbar-collapse -->
