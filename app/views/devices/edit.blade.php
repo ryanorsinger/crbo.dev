@@ -450,7 +450,7 @@
 			  		<div class="form-group">
 						<label for="replacement_part_1_cost" class="col-sm-2 control-label">OS License Cost</label>
 						<div class="col-sm-10">
-				  		<input name="replacement_part_1_cost" type="text" class="form-control refurbPricer" id="inputOScost" placeholder="OS License Cost">
+				  		<input name="replacement_part_1_cost" id="replacement_part_1_cost" type="text" class="form-control" id="inputOScost" placeholder="OS License Cost">
 						</div>
 			  		</div>
 			  		<hr>
@@ -463,7 +463,7 @@
 			  		<div class="form-group">
 						<label for="replacement_part_2_cost" class="col-sm-2 control-label">Part Cost</label>
 						<div class="col-sm-10">
-				  		<input name="replacement_part_2_cost" type="text" class="form-control refurbPricer" id="inputOScost" placeholder="Part cost">
+				  		<input name="replacement_part_2_cost" id="replacement_part_2_cost" type="text" class="form-control" id="inputOScost" placeholder="Part cost">
 						</div>
 			  		</div>
 			  		<br>
@@ -476,7 +476,7 @@
 			  		<div class="form-group">
 						<label for="replacement_part_3_cost" class="col-sm-2 control-label">Part Cost</label>
 						<div class="col-sm-10">
-				  		<input name="replacement_part_3_cost" type="text" class="form-control refurbPricer" id="inputOScost" placeholder="Part Cost">
+				  		<input name="replacement_part_3_cost" id="replacement_part_3_cost" type="text" class="form-control" id="inputOScost" placeholder="Part Cost">
 						</div>
 			  		</div>
 			  		<br>
@@ -489,7 +489,7 @@
 			  		<div class="form-group">
 						<label for="replacement_part_4_cost" class="col-sm-2 control-label">Part Cost</label>
 						<div class="col-sm-10">
-				  		<input name="replacement_part_4_cost" type="text" class="form-control refurbPricer" id="inputOScost" placeholder="Part Cost">
+				  		<input name="replacement_part_4_cost" id="replacement_part_4_cost" type="text" class="form-control" id="inputOScost" placeholder="Part Cost">
 						</div>
 			  		</div>
 			  		<hr>
@@ -535,50 +535,61 @@
 @section('bottom-script')
 <script>
 
-	var refurbCost = 0;
-	var totalCost = 0;
+	$("#replacement_part_1_cost").on('change', function() {	
+
+		var refurbCost = 0;
+		var totalCost = 0;
+		var acquisitionCost = 0;
+		var part1Cost = 0;
+		var part2Cost = 0;
+		var part3Cost = 0;
+		var part4Cost = 0;
 	
-	//get the acquisition cost
-	var acquisitionCost = 0;
-	var part1Cost = 0;
-	var part2Cost = 0;
-	var part3Cost = 0;
-	var part4Cost = 0;
+		acquisitionCost = (acquisition_cost.attributes['value'].value); 
 
-
-
-	$('#refurbPricer input').on('change', function() {
-
-			acquisitionCost = (acquisition_cost.attributes['value'].value); 
-					
-			if ($.isNumeric($('#replacement_part_1_cost').val())
+		if ($.isNumeric($('#replacement_part_1_cost').val()))
 			{
 				part1Cost = $('#replacement_part_1_cost').val();
 			}
 
-			if ($.isNumeric($('#replacement_part_2_cost').val())
+		if ($.isNumeric($('#replacement_part_2_cost').val()))
 			{
 				part2Cost = $('#replacement_part_2_cost').val();
 			}
 
-			if ($.isNumeric($('#replacement_part_3_cost').val())
+		if ($.isNumeric($('#replacement_part_3_cost').val()))
 			{
 				part3Cost = $('#replacement_part_3_cost').val();
 			}
 
-			if ($.isNumeric($('#replacement_part_4_cost').val())
+		if ($.isNumeric($('#replacement_part_4_cost').val()))
 			{
 				part4Cost = $('#replacement_part_4_cost').val();
 			}
 
+		refurbCost = (part1Cost + part2Cost + part3Cost + part4Cost);
+		totalCost = (acquisitionCost + refurbCost);
 
-			refurbCost = ( part1Cost + part2Cost + part3Cost + part4Cost);
-			totalCost = refurbCost + acquisitionCost;
+		console.log('part1cost: ' + part1Cost);
+		console.log('part2cost: ' + part2Cost);
+		console.log('part3cost: ' + part3Cost);
+		console.log('part4cost: ' + part4Cost);
+
+
+		console.log('refurb cost: ' + refurbCost);
+		console.log('acquisition cost: ' + acquisitionCost);
+		console.log('total cost: ' + totalCost);
+
+
+
+
+	});
+
 
 			//$('#disabledInput').attr('value', price);
 			//$('#price-box').html("<span id='price-text'>HIGH PRICE: " + price + "</span>");
 			
-		});
+	
 
 
 </script>
