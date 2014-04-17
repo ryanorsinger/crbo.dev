@@ -159,6 +159,7 @@ class DevicesController extends \BaseController {
 		Log::info(Input::all());
 
 		$device = Device::find($id);
+		
 		// create the validator
 	    $validator = Validator::make(Input::all(), Device::$rules);
 
@@ -207,9 +208,9 @@ class DevicesController extends \BaseController {
 		    $device->replacement_part4 = Input::get('replacement_part_4');
 		    $device->replacement_part4_cost = Input::get('replacement_part_4_cost');
 		    $device->refurbisher_comments = Input::get('refurb_comments');
-		    // $device->refurb_cost = Input::get('refurb_cost');
-		    // $device->status = Input::get('status');
-		    // $device->total_cost = Input::get('total_cost');
+		    $device->refurb_cost = Input::get('refurb_cost');
+		    $device->status = Input::get('status');
+		    $device->total_cost = Input::get('total_cost');
 
 		    $device->save();
 

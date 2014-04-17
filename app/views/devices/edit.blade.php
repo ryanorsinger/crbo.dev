@@ -45,8 +45,13 @@
 			<th>Buyback</th>
 			<th>Refurbish Technician Confirm or Disagree</th>
 		</thead>
-		<tbody>
-			{{ Form::model($device, (array('action' => array('DevicesController@update', $device->id), 'method' => 'put', 'id' => 'refurbPricer', 'class' => 'form-horizontal'))) }}
+		<tbody>			
+			{{ Form::open($device, array(
+							    'action' => 'DevicesController@update',
+							    'method' => 'PUT',
+							    'class' => 'form-horizontal',
+							    'id' => 'refurbPricer'
+							)) }}
 			<tr>
 				<td>Network Boot?</td>
 				<td>{{{ $device->network_boot }}}</td>
