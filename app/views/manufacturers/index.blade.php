@@ -42,9 +42,9 @@
 				<td>{{{ $manufacturer->company }}}</td>				
 				<td>{{{ $manufacturer->price }}}</td>
 				<td>{{{ $manufacturer->updated_at->setTimezone('America/Chicago')->format('m / d') }}}</td>
-				<td>{{ Form::open(array('action' => array('ManufacturersController@destroy', $manufacturer->id), 'method' => 'DELETE')) }}
+				<td><center>{{ Form::open(array('action' => array('ManufacturersController@destroy', $manufacturer->id), 'method' => 'DELETE')) }}
 					<button class="btn btn-danger" type="submit">Delete Row</button>
-					{{ Form::close() }}
+					{{ Form::close() }}</center>
 				</td>
 			</tr>
 			@endforeach

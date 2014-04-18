@@ -54,9 +54,9 @@
 				<td>{{{ $hdd->capacity }}}</td>				
 				<td>{{{ $hdd->price }}}</td>
 				<td>{{{ $hdd->updated_at->setTimezone('America/Chicago')->format('m / d') }}}</td>
-				<td>{{ Form::open(array('action' => array('HddsController@destroy', $hdd->id), 'method' => 'DELETE')) }}
+				<td><center>{{ Form::open(array('action' => array('HddsController@destroy', $hdd->id), 'method' => 'DELETE')) }}
 					<button class="btn btn-danger" type="submit">Delete Row</button>
-					{{ Form::close() }}
+					{{ Form::close() }}</center>
 				</td>
 			</tr>
 			@endforeach

@@ -60,9 +60,9 @@
 				<td>{{{ $cpu->speed }}}</td>
 				<td>{{{ $cpu->price }}}</td>
 				<td>{{{ $cpu->updated_at->setTimezone('America/Chicago')->format('m / d') }}}</td>
-				<td>{{ Form::open(array('action' => array('CpusController@destroy', $cpu->id), 'method' => 'DELETE')) }}
+				<td><center>{{ Form::open(array('action' => array('CpusController@destroy', $cpu->id), 'method' => 'DELETE')) }}
 					<button class="btn btn-danger" type="submit">Delete Row</button>
-					{{ Form::close() }}
+					{{ Form::close() }}</center>
 				</td>
 			</tr>
 			@endforeach
