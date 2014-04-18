@@ -177,6 +177,7 @@ class DevicesController extends \BaseController {
 	    else
 	    {   	    
 
+	    $device->purchased_by = Auth::user()->username;
 	    $device->refurb_machine_powers_on = Input::get('refurb_machine_powers_on');
 	    $device->refurb_network_boot = Input::get('refurb_network_boot');
 	    $device->refurb_mem_test = Input::get('refurb_mem_test');
