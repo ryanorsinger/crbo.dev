@@ -54,9 +54,9 @@
 				<td>{{{ $ram->size }}}</td>
 				<td>{{{ $ram->price }}}</td>
 				<td>{{{ $ram->updated_at->setTimezone('America/Chicago')->format('m / d') }}}</td>
-				<td>{{ Form::open(array('action' => array('RamsController@destroy', $ram->id), 'method' => 'DELETE')) }}
+				<td><center>{{ Form::open(array('action' => array('RamsController@destroy', $ram->id), 'method' => 'DELETE')) }}
 					<button class="btn btn-danger" type="submit">Delete Row</button>
-					{{ Form::close() }}
+					{{ Form::close() }}</center>
 				</td>
 			</tr>
 			@endforeach

@@ -6,13 +6,19 @@
 
 @section('style')
 <style>
+#create-device-container
+{
+	margin-right: 1%;
+	margin-left: -2%;
+}
+
 #price-box	
 { 
 	position:fixed; top:2%; right:2%;
 	background-color: #7bd63e;
 	color: #FFF;
 	width: 200px;
-	height: 50px;
+	height: 75px;
 	text-align: center;
 	border-radius: 25%;
 }
@@ -20,20 +26,20 @@
 #price-text
 {
 	vertical-align: middle;
-	font-size: 1.5em;
+	font-size: 2em;
 }
 </style>
 @stop
 
 
 @section('content')
-<div class="container" ng-controller="CreateController">
-<h1 class="page-header">210Geeks.com &nbsp; Buy Back Procedure Form</h1>
+<div class="container" id="create-device-container" ng-controller="CreateController">
+<h1 class="page-header"><center>CRBO BuyBack Form</center></h1>
 	<div>
 	<row>
 	{{ Form::open(array('action' => 'DevicesController@store', 'class' => 'form-inline', 'id' => 'priceForm')) }}
 		<div class="col-lg-6">	
-		<h2>Device Information</h2>
+		<h2><center>Device Information</center></h2>
 			<div class="well">
 				<div class="form-inline">
 					<label class="acquisition_type" id="acquisition_type">Acquisition Type &nbsp;</label>
@@ -59,23 +65,29 @@
 				</div>
 			</div>
 			<div class="well" id="manufacturer">
-				<div class="form-inline">Manufacturer
+				<div class="form-inline"><h4>Manufacturer:</h4>
+						<label class="radio">
+							<input type="radio" checked="checked" name="manufacturer" value="0" data-price="0">
+						None</label>&nbsp;
 						@foreach($manufacturers as $manufacturer)	
 							<label class="radio"> 
 							<input type="radio" name="manufacturer" value="{{ $manufacturer->company }}" data-price="{{ $manufacturer->price }}"/>
 						    {{ $manufacturer->company }}
+							</label>&nbsp;
 						@endforeach
 				</div>
 				<br>
 				<div class="form-group">
 					<label for="model" value="model">Model:
-					<input class="form-control" autofocus="autofocus" type="text" name="model"/>
+					<input class="form-control" type="text" name="model"/>
 					</label>
 				</div>
 			</div>
 			<div class="well" id="cpus">
-				<div class="form-inline">Processor &nbsp; 
-					<input type="text" id="cpu_search" placeholder="type in processor">
+				<div class="form-inline"><h4>Processor:</h4>
+					<label class="radio">
+						<input type="radio" checked="checked" name="cpu" value="0" data-price="0">
+					None</label><br>
 					@foreach($cpus as $cpu)
 						<label class="radio">
 						<input type="radio" name="cpu" value="{{ $cpu->id }}" data-price="{{ $cpu->price }}"/>
@@ -83,28 +95,37 @@
 						{{ $cpu->model }}
 						{{ $cpu->number_of_cores }}
 						{{ $cpu->speed }}
+						</label><br>
 					@endforeach
 				</div>
 			</div>
 			<div class="well" id="hdds">
-				<div class="form-inline">Hard Drive
+				<div class="form-inline"><h4>Hard Drive:</h4>
+					<label class="radio">
+						<input type="radio" checked="checked" name="hdd" value="0" data-price="0">
+					None</label><br>
 					@foreach($hdds as $hdd)
 						<label class="radio">
 						<input type="radio" name="hdd" value="{{ $hdd->id }}" data-price="{{ $hdd->price }}"/>
 						{{ $hdd->form_factor }}
 						{{ $hdd->interface }}
 						{{ $hdd->capacity }}
+						</label><br>
 					@endforeach
 				</div>
 			</div>
 			<div class="well" id="rams">
-				<div class="form-inline">Memory
+				<div class="form-inline"><h4>Memory:</h4>
+					<label class="radio">
+						<input type="radio" checked="checked" name="ram" value="0" data-price="0">
+					None</label><br>
 					@foreach($rams as $ram)
 						<label class="radio">
 						<input type="radio" name="ram" value="{{ $ram->id }}" data-price="{{ $ram->price }}"/>
 						{{ $ram->type }}
 						{{ $ram->speed }}
 						{{ $ram->size }}
+						</label><br>
 					@endforeach
 				</div>
 
@@ -112,7 +133,7 @@
 
 		</div>
 	<div class="col-lg-6">
-		<h3>System Checks</h3>
+		<h2><center>System Checks</center></h2>
 			<div class="well">
 				<div class="form-inline">
 					<label class="network_boot" id="physical_damage">Does the machine have physical damage? &nbsp;</label>
@@ -214,11 +235,11 @@
 					<label class="missing_loose_parts" id="missing_loose_parts">Are there missing or loose parts? &nbsp;</label>
 					<label class="radio">
 						<input type="radio" name="missing_loose_parts" value="yes"/>
-						yes&nbsp;
+						Yes&nbsp;
 					</label>
 					<label class="radio">
 						<input type="radio" name="missing_loose_parts" value="no"/>
-						no&nbsp;
+						No&nbsp;
 					</label>
 				</div>
 				<div class="form-inline">
@@ -277,7 +298,7 @@
 					</label>
 					<label class="radio">
 						<input type="radio" name="optical_drive_type" value="other"/>
-						other&nbsp;
+						Other&nbsp;
 					</label>
 				</div>
 				<div class="form-inline">
@@ -298,15 +319,15 @@
 					<label class="network_boot" id="internal_wifi">Internal Wifi Good?&nbsp;</label>
 					<label class="radio">
 						<input type="radio" name="internal_wifi" value="yes"/>
-						pass&nbsp;
+						Pass&nbsp;
 					</label>
 					<label class="radio">
 						<input type="radio" name="internal_wifi" value="no"/>
-						fail&nbsp;
+						Fail&nbsp;
 					</label>
 					<label class="radio">
 						<input type="radio" name="internal_wifi" value="no"/>
-						missing&nbsp;
+						Missing&nbsp;
 					</label>
 				</div>
 				<div class="form-inline">
@@ -343,7 +364,7 @@
 					</label>
 					<label class="radio">
 						<input type="radio" name="laptop_battery" value="missing"/>
-						missing&nbsp;
+						Missing&nbsp;
 					</label>
 				</div>
 				<div class="form-inline">
@@ -393,7 +414,7 @@
 				<div class="form-horizontal">
 					<label for="laptop_screen_size" class="col-sm-4 control-label">Laptop Screen Size</label>
    					<div class="col-sm-8">
-      				<input type="text" class="form-control" id="laptop_screen_size" placeholder="laptop screen size">
+      				<input type="text" class="form-control" id="laptop_screen_size">
 				</div>
 				<br>
 				</div>
@@ -463,7 +484,8 @@
 </div>
 
 <div id="price-box">
-	<span id="price-text">HIGH PRICE: 0</span>
+	<p>Max Negotiating Price:</p>
+	<span id="price-text">$ 0</span>
 </div>
 
 
@@ -497,7 +519,7 @@
 				   price = (ram + cpu + hdd + manufacturer);
 
 				   $('#disabledInput').attr('value', price);
-				   $('#price-box').html("<span id='price-text'>HIGH PRICE: " + price + "</span>");
+				   $('#price-box').html("<p>Max Negotiating Price:</p> <span id='price-text'> $ " + price + "</span>");
 			}
 		});
 
