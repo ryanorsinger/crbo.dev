@@ -55,6 +55,8 @@ class DevicesController extends \BaseController {
 	 */
 	public function store()
 	{
+		Log::info(Input::all());
+
 		// create the validator
 		$validator = Validator::make(Input::all(), Device::$rules);
 
@@ -111,7 +113,9 @@ class DevicesController extends \BaseController {
 			$device->cpus()->sync(array(Input::get('cpu'))); 
 			$device->rams()->sync(array(Input::get('ram')));
 			$device->hdds()->sync(array(Input::get('hdd')));
-			
+
+			Session::flash('successMessage', 'Successfully added device');
+		
 			return Redirect::action('DevicesController@index');
 		}
 	}
@@ -152,7 +156,23 @@ class DevicesController extends \BaseController {
 	 */
 	public function update($id)
 	{
+		Log::info(Input::all());
+
 		$device = Device::find($id);
+		
+		// create the validator
+	    $validator = Validator::make(Input::all(), Device::$rules);
+
+	    // attempt validation
+	    if ($validator->fails())
+	    {
+	        // validation failed, redirect to the post create page with validation errors and old inputs
+	       	Session::flash('errorMessage', 'Device could not be updated - see form errors');
+
+   	        return Redirect::back()->withInput()->withErrors($validator);
+	    }
+	    else
+	    {   	    
 
 	    $device->refurb_machine_powers_on = Input::get('refurb_machine_powers_on');
 	    $device->refurb_network_boot = Input::get('refurb_network_boot');
@@ -199,6 +219,7 @@ class DevicesController extends \BaseController {
     	
     	return Redirect::action('DevicesController@index');
 
+    	}
 	}
 
 	/**
@@ -214,4 +235,5 @@ class DevicesController extends \BaseController {
 		$device->delete();
 		return "Delete request process successfull.";
 	}
+
 }

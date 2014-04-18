@@ -47,6 +47,7 @@
 		</thead>
 		<tbody>
 			{{ Form::model($device, array('action' => array('DevicesController@update', $device->id), 'method' => 'put', 'id' => 'refurbPricer', 'class' => 'form-horizontal')) }}
+
 			<tr>
 				<td>Network Boot?</td>
 				<td>{{{ $device->network_boot }}}</td>
