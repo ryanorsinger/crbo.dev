@@ -20,6 +20,7 @@ class DevicesController extends \BaseController {
 		return View::make('devices/index')->with($data);
 	}
 
+
 	/**
 	 * Show the form for creating a new resource.
 	 *
@@ -27,7 +28,6 @@ class DevicesController extends \BaseController {
 	 */
 	public function create()
 	{
-		
 
 		$devices = Device::all();
 		$manufacturers = Manufacturer::all();
@@ -128,6 +128,9 @@ class DevicesController extends \BaseController {
 	 */
 	public function show($id)
 	{
+		
+		Log::info(Input::all());
+
 		$device = Device::find($id);
 		
 		return View::make('devices/show')->with('device', $device);
@@ -143,7 +146,7 @@ class DevicesController extends \BaseController {
 	{
 		Log::info(Input::all());
 
-		$device = Device::find($id);		
+		$device = Device::find($id);
 
 		return View::make('devices/edit')->with('device', $device);
 	}
@@ -174,6 +177,7 @@ class DevicesController extends \BaseController {
 	    else
 	    {   	    
 
+	    $device->purchased_by = Auth::user()->username;
 	    $device->refurb_machine_powers_on = Input::get('refurb_machine_powers_on');
 	    $device->refurb_network_boot = Input::get('refurb_network_boot');
 	    $device->refurb_mem_test = Input::get('refurb_mem_test');

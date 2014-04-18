@@ -30,7 +30,9 @@
 			<tr>
 				<td><a href="{{{ action('DevicesController@show', $device->id) }}}"> {{{ $device->id }}} </a>&nbsp;</td>
 				<td><a href="{{{ action('DevicesController@edit', $device->id) }}}"> <button type="button" class="btn btn-primary">Refurbish</button></a></td>				
-				<!-- <td>{{{ $device->acquisition_type }}}</td> -->
+				
+
+
 				<td>{{{ $device->manufacturer }}}</td>
 				<td>{{{ $device->model }}}</td>
 				

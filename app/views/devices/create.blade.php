@@ -69,13 +69,13 @@
 				<br>
 				<div class="form-group">
 					<label for="model" value="model">Model:
-					<input class="form-control" type="text" name="model"/>
+					<input class="form-control" autofocus="autofocus" type="text" name="model"/>
 					</label>
 				</div>
 			</div>
 			<div class="well" id="cpus">
 				<div class="form-inline">Processor &nbsp; 
-					<input type="text" autofocus="autofocus" id="cpu_search" placeholder="type in processor">
+					<input type="text" id="cpu_search" placeholder="type in processor">
 					@foreach($cpus as $cpu)
 						<label class="radio">
 						<input type="radio" name="cpu" value="{{ $cpu->id }}" data-price="{{ $cpu->price }}"/>
@@ -235,7 +235,7 @@
 				<div class="form-inline">
 					<label class="pcmci_slot_condition" id="pcmci_slot">PCMCI slot good? &nbsp;</label>
 					<label class="radio">
-						<input type="radio" name="pcmci_slot" value="good"/>
+						<input type="radio" name="pcmcia_slot" value="good"/>
 						Good&nbsp;
 					</label>
 					<label class="radio">
