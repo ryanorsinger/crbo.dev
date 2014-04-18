@@ -219,7 +219,7 @@ class DevicesController extends \BaseController {
     	
     	return Redirect::action('DevicesController@index');
 
-
+    	}
 	}
 
 	/**
