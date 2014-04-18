@@ -172,52 +172,54 @@ class DevicesController extends \BaseController {
    	        return Redirect::back()->withInput()->withErrors($validator);
 	    }
 	    else
-	    {    
-		    $device->refurb_machine_powers_on = Input::get('refurb_machine_powers_on');
-		    $device->network_boot = Input::get('refurb_network_boot');
-		    $device->refurb_mem_test = Input::get('refurb_mem_test');
-		    $device->refurb_hdd_test = Input::get('refurb_hdd_test');
-		    $device->refurb_power_connector_snug = Input::get('refurb_power_connector_snug');
-		    $device->refurb_laptop_battery = Input::get('refurb_test_bios_battery');
-		    $device->refurb_access_bios = Input::get('refurb_access_bios');
-		    $device->refurb_test_bios_battery = Input::get('');
-		    $device->refurb_os_license_readable = Input::get('refurb_os_license_readable');
-		    $device->refurb_motherboard_capacitors = Input::get('refurb_motherboard_capacitors');
-		    $device->refurb_usb_condition = Input::get('refurb_usb_condition');
-		    $device->refurb_missing_loose_parts = Input::get('refurb_missing_loose_parts');
-		    $device->refurb_pcmcia_slot = Input::get('refurb_pcmcia_slot');
-		    $device->refurb_network_port = Input::get('refurb_network_port');
-		    $device->refurb_restore_partition_or_media = Input::get('refurb_restore_partition_or_media');
-		    $device->refurb_optical_drive_type = Input::get('refurb_optical_drive_type');
-		    $device->refurb_optical_drive_condition = Input::get('refurb_optical_drive_condition');
-		    $device->refurb_internal_wifi = Input::get('refurb_internal_wifi');
-		    $device->refurb_internal_sound = Input::get('refurb_internal_sound');
-		    $device->refurb_laptop_screen_size = Input::get('refurb_laptop_screen_size');
-		    $device->refurb_laptop_screen_condition = Input::get('refurb_laptop_screen_condition');
-		    $device->refurb_laptop_power_charger = Input::get('refurb_laptop_power_charger');
-		    $device->refurb_laptop_battery_condition = Input::get('refurb_laptop_battery_condition');
-		    $device->refurb_keyboard_condition = Input::get('refurb_keyboard_condition');
-		    $device->refurb_loud_fans = Input::get('refurb_loud_fans');
-		    $device->refurb_grade_abc = Input::get('refurb_grade_abc');
-		    $device->replacement_part1 = Input::get('replacement_part_1');
-		    $device->replacement_part1_cost = Input::get('replacement_part_1_cost');
-		    $device->replacement_part2 = Input::get('replacement_part_2');
-		    $device->replacement_part2_cost = Input::get('replacement_part_2_cost');
-		    $device->replacement_part3 = Input::get('replacement_part_3');
-		    $device->replacement_part3_cost = Input::get('replacement_part_3_cost');
-		    $device->replacement_part4 = Input::get('replacement_part_4');
-		    $device->replacement_part4_cost = Input::get('replacement_part_4_cost');
-		    $device->refurbisher_comments = Input::get('refurb_comments');
-		    $device->refurb_cost = Input::get('refurb_cost');
-		    $device->status = Input::get('status');
-		    $device->total_cost = Input::get('total_cost');
+	    {   	    
 
-		    $device->save();
+	    $device->refurb_machine_powers_on = Input::get('refurb_machine_powers_on');
+	    $device->refurb_network_boot = Input::get('refurb_network_boot');
+	    $device->refurb_mem_test = Input::get('refurb_mem_test');
+	    $device->refurb_hdd_test = Input::get('refurb_hdd_test');
+	    $device->refurb_power_connector_snug = Input::get('refurb_power_connector_snug');
+	    $device->refurb_laptop_battery = Input::get('refurb_test_bios_battery');
+	    $device->refurb_access_bios = Input::get('refurb_access_bios');
+	    $device->refurb_test_bios_battery = Input::get('');
+	    $device->refurb_os_license_readable = Input::get('refurb_os_license_readable');
+	    $device->refurb_motherboard_capacitors = Input::get('refurb_motherboard_capacitors');
+	    $device->refurb_usb_condition = Input::get('refurb_usb_condition');
+	    $device->refurb_missing_loose_parts = Input::get('refurb_missing_loose_parts');
+	    $device->refurb_pcmcia_slot = Input::get('refurb_pcmcia_slot');
+	    $device->refurb_network_port = Input::get('refurb_network_port');
+	    $device->refurb_restore_partition_or_media = Input::get('refurb_restore_partition_or_media');
+	    $device->refurb_optical_drive_type = Input::get('refurb_optical_drive_type');
+	    $device->refurb_optical_drive_condition = Input::get('refurb_optical_drive_condition');
+	    $device->refurb_internal_wifi = Input::get('refurb_internal_wifi');
+	    $device->refurb_internal_sound = Input::get('refurb_internal_sound');
+	    $device->refurb_laptop_screen_size = Input::get('refurb_laptop_screen_size');
+	    $device->refurb_laptop_screen_condition = Input::get('refurb_laptop_screen_condition');
+	    $device->refurb_laptop_power_charger = Input::get('refurb_laptop_power_charger');
+	    $device->refurb_laptop_battery_condition = Input::get('refurb_laptop_battery_condition');
+	    $device->refurb_keyboard_condition = Input::get('refurb_keyboard_condition');
+	    $device->refurb_loud_fans = Input::get('refurb_loud_fans');
+	    $device->refurb_grade_abc = Input::get('refurb_grade_abc');
+	    $device->replacement_part1 = Input::get('replacement_part1');
+	    $device->replacement_part1_cost = Input::get('replacement_part1_cost');
+	    $device->replacement_part2 = Input::get('replacement_part2');
+	    $device->replacement_part2_cost = Input::get('replacement_part2_cost');
+	    $device->replacement_part3 = Input::get('replacement_part3');
+	    $device->replacement_part3_cost = Input::get('replacement_part3_cost');
+	    $device->replacement_part4 = Input::get('replacement_part4');
+	    $device->replacement_part4_cost = Input::get('replacement_part4_cost');
+	    $device->refurbisher_comments = Input::get('refurbisher_comments');
+	    $device->refurb_cost = Input::get('refurb_cost');
+	    $device->status = Input::get('status');
+	    $device->total_cost = Input::get('total_cost');
 
-		   	Session::flash('successMessage', 'Device Refurb updated successfully');
-	    	
-	    	return Redirect::action('DevicesController@index');
-		}
+	    $device->save();
+
+	   	Session::flash('successMessage', 'Device Refurb updated successfully');
+    	
+    	return Redirect::action('DevicesController@index');
+
+
 	}
 
 	/**

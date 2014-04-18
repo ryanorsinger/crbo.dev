@@ -45,376 +45,296 @@
 			<th>Buyback</th>
 			<th>Refurbish Technician Confirm or Disagree</th>
 		</thead>
-		<tbody>			
-			{{ Form::open($device, array(
-							    'action' => 'DevicesController@update',
-							    'method' => 'PUT',
-							    'class' => 'form-horizontal',
-							    'id' => 'refurbPricer'
-							)) }}
+		<tbody>
+			{{ Form::model($device, array('action' => array('DevicesController@update', $device->id), 'method' => 'put', 'id' => 'refurbPricer', 'class' => 'form-horizontal')) }}
+
 			<tr>
 				<td>Network Boot?</td>
 				<td>{{{ $device->network_boot }}}</td>
-				<td><div class="form-inline">
-					<label class="refurb_network_boot" id="network_boot"></label>
-					<label class="radio">
-						<input type="radio" name="refurb_network_boot" value="confirm"/>
-						&nbsp;Confirm&nbsp;
-					</label>
-					<label class="radio">
-						<input type="radio" name="refurb_network_boot" value="disagree"/>
-						&nbsp;Disagree&nbsp;
-					</label>
-				</div>	
+				<td>
+					<div class="form-inline">
+						{{ Form::label('confirm', 'Confirm') }}&nbsp;
+						{{ Form::radio('refurb_network_boot', 'confirm') }} &nbsp;
+						{{ Form::label('disagree', 'Disagree') }}&nbsp;
+						{{ Form::radio('refurb_network_boot', 'disagree') }} &nbsp;
+					</div>	
 				</td>
-
 			</tr>
 			<tr>
 				<td>Memory Test:</td>
 				<td>{{{ $device->mem_test }}}</td>
-				<td><div class="form-inline">
-					<label class="refurb_mem_test" id="refurb_mem_test"></label>
-					<label class="radio">
-						<input type="radio" name="refurb_mem_test" value="confirm"/>
-						&nbsp;Confirm&nbsp;
-					</label>
-					<label class="radio">
-						<input type="radio" name="refurb_mem_test" value="disagree"/>
-						&nbsp;Disagree&nbsp;
-					</label>
-					</td>
+				<td>
+					<div class="form-inline">
+					{{ Form::label('confirm', 'Confirm') }}&nbsp;
+					{{ Form::radio('refurb_mem_test', 'confirm') }} &nbsp;
+					{{ Form::label('disagree', 'Disagree') }}&nbsp;
+					{{ Form::radio('refurb_mem_test', 'disagree') }} &nbsp;
+					</div>
+				</td>
 			</tr>
 			<tr>
 				<td>Hard Drive Test:</td>
 				<td>{{{ $device->hdd_test }}}</td>
-				<td><div class="form-inline">
-					<label class="refurb_mem_test" id="refurb_hdd_test"></label>
-					<label class="radio">
-						<input type="radio" name="refurb_hdd_test" value="confirm"/>
-						&nbsp;Confirm&nbsp;
-					</label>
-					<label class="radio">
-						<input type="radio" name="refurb_hdd_test" value="disagree"/>
-						&nbsp;Disagree&nbsp;
-					</label></td>
+				<td>
+					<div class="form-inline">
+						{{ Form::label('confirm', 'Confirm') }}&nbsp;
+						{{ Form::radio('refurb_hdd_test', 'confirm') }} &nbsp;
+						{{ Form::label('disagree', 'Disagree') }}&nbsp;
+						{{ Form::radio('refurb_hdd_test', 'disagree') }} &nbsp;
+					</div>
+				</td>
 			</tr>
 			<tr>
 				<td>Machine Powers On?</td>
 				<td>{{{ $device->machine_powers_on }}}</td>
-				<td><div class="form-inline">
-					<label class="refurb_network_boot" id="refurb_machine_powers_on"></label>
-					<label class="radio">
-						<input type="radio" name="refurb_machine_powers_on" value="confirm"/>
-						&nbsp;Confirm&nbsp;
-					</label>
-					<label class="radio">
-						<input type="radio" name="refurb_machine_powers_on" value="disagree"/>
-						&nbsp;Disagree&nbsp;
-					</label>
-				</div></td>
+				<td>
+					<div class="form-inline">
+						{{ Form::label('confirm', 'Confirm') }}&nbsp;
+						{{ Form::radio('refurb_machine_powers_on', 'confirm') }} &nbsp;
+						{{ Form::label('disagree', 'Disagree') }}&nbsp;
+						{{ Form::radio('refurb_machine_powers_on', 'disagree') }} &nbsp;
+					</div>
+				</td>
 			</tr>
 			<tr>
 				<td>Bios Accessible?</td>
 				<td>{{{ $device->bios_accessible }}}</td>
-				<td><div class="form-inline">
-					<label class="refurb_access_bios" id="refurb_access_bios"></label>
-					<label class="radio">
-						<input type="radio" name="refurb_access_bios" value="confirm"/>
-						&nbsp;Confirm&nbsp;
-					</label>
-					<label class="radio">
-						<input type="radio" name="refurb_access_bios" value="disagree"/>
-						&nbsp;Disagree&nbsp;
-					</label>
-				</div></td>
+				<td>
+					<div class="form-inline">
+						{{ Form::label('confirm', 'Confirm') }}&nbsp;
+						{{ Form::radio('refurb_machine_access_bios', 'confirm') }} &nbsp;
+						{{ Form::label('disagree', 'Disagree') }}&nbsp;
+						{{ Form::radio('refurb_machine_access_bios', 'disagree') }} &nbsp;
+					</div>
+				</td>
 			</tr>
 			<tr>
 				<td>Readabale OS License?</td>
 				<td>{{{ $device->readable_os_license }}}</td>
-				<td><div class="form-inline">
-					<label class="refurb_access_bios" id="refurb_os_license_readable"></label>
-					<label class="radio">
-						<input type="radio" name="refurb_os_license_readable" value="confirm"/>
-						&nbsp;Confirm&nbsp;
-					</label>
-					<label class="radio">
-						<input type="radio" name="refurb_os_license_readable" value="disagree"/>
-						&nbsp;Disagree&nbsp;
-					</label>
-				</div></td>
+				<td>
+					<div class="form-inline">
+						{{ Form::label('confirm', 'Confirm') }}&nbsp;
+						{{ Form::radio('refurb_os_license_readable', 'confirm') }} &nbsp;
+						{{ Form::label('disagree', 'Disagree') }}&nbsp;
+						{{ Form::radio('refurb_os_license_readable', 'disagree') }} &nbsp;
+					</div>
+				</td>
 			</tr>
 			<tr>
 				<td>Motherboard Capacitors:</td>
 				<td>{{{ $device->motherboard_capacitors }}}</td>
-				<td><div class="form-inline">
-					<label class="refurb_access_bios" id="refurb_motherboard_capacitors"></label>
-					<label class="radio">
-						<input type="radio" name="refurb_motherboard_capacitors" value="confirm"/>
-						&nbsp;Confirm&nbsp;
-					</label>
-					<label class="radio">
-						<input type="radio" name="refurb_motherboard_capacitors" value="disagree"/>
-						&nbsp;Disagree&nbsp;
-					</label>
-				</div>
+				<td>
+					<div class="form-inline">					
+						{{ Form::label('confirm', 'Confirm') }}&nbsp;
+						{{ Form::radio('refurb_motherboard_capacitors', 'confirm') }} &nbsp;
+						{{ Form::label('disagree', 'Disagree') }}&nbsp;
+						{{ Form::radio('refurb_motherboard_capacitors', 'disagree') }} &nbsp;
+					</div>
 				</td>
 			</tr>
 			<tr>
 				<td>Missing Loose Parts?</td>
 				<td>{{{ $device->missing_loose_parts }}}</td>
-				<td><div class="form-inline">
-					<label class="refurb_access_bios" id="refurb_missing_loose_parts"></label>
-					<label class="radio">
-						<input type="radio" name="refurb_missing_loose_parts" value="confirm"/>
-						&nbsp;Confirm&nbsp;
-					</label>
-					<label class="radio">
-						<input type="radio" name="refurb_missing_loose_parts" value="disagree"/>
-						&nbsp;Disagree&nbsp;
-					</label>
-				</div>
-			</td>
+				<td>
+					<div class="form-inline">					
+						{{ Form::label('confirm', 'Confirm') }}&nbsp;
+						{{ Form::radio('refurb_missing_loose_parts', 'confirm') }} &nbsp;
+						{{ Form::label('disagree', 'Disagree') }}&nbsp;
+						{{ Form::radio('refurb_missing_loose_parts', 'disagree') }} &nbsp;
+					</div>
+				</td>
 			</tr>
 			<tr>
 				<td>USB Port Condition:</td>
 				<td>{{{ $device->usb_port_condition }}}</td>
-				<td><div class="form-inline">
-					<label class="refurb_access_bios" id="refurb_usb_condition"></label>
-					<label class="radio">
-						<input type="radio" name="refurb_usb_condition" value="confirm"/>
-						&nbsp;Confirm&nbsp;
-					</label>
-					<label class="radio">
-						<input type="radio" name="refurb_usb_condition" value="disagree"/>
-						&nbsp;Disagree&nbsp;
-					</label>
-				</div>
-			</td>
+				<td>
+					<div class="form-inline">
+						{{ Form::label('confirm', 'Confirm') }}&nbsp;
+						{{ Form::radio('refurb_usb_condition', 'confirm') }} &nbsp;
+						{{ Form::label('disagree', 'Disagree') }}&nbsp;
+						{{ Form::radio('refurb_usb_condition', 'disagree') }} &nbsp;
+					</div>
+				</td>
 			</tr>
 			<tr>
 				<td>PCMCIA Slot:</td>
 				<td>{{{ $device->pcmcia_slot }}}</td>
 				<td><div class="form-inline">
-					<label class="refurb_access_bios" id="refurb_pcmcia_slot "></label>
-					<label class="radio">
-						<input type="radio" name="refurb_pcmcia_slot" value="confirm"/>
-						&nbsp;Confirm&nbsp;
-					</label>
-					<label class="radio">
-						<input type="radio" name="refurb_pcmcia_slot" value="disagree"/>
-						&nbsp;Disagree&nbsp;
-					</label>
-				</div></td>
+						{{ Form::label('confirm', 'Confirm') }}&nbsp;
+						{{ Form::radio('refurb_pcmcia_slot', 'confirm') }} &nbsp;
+						{{ Form::label('disagree', 'Disagree') }}&nbsp;
+						{{ Form::radio('refurb_pcmcia_slot', 'disagree') }} &nbsp;
+					</div>
+				</td>
 			</tr>
 			<tr>
 				<td>Network Port:</td>
 				<td>{{{ $device->network_port }}}</td>
-				<td><div class="form-inline">
-					<label class="refurb_access_bios" id="refurb_network_port"></label>
-					<label class="radio">
-						<input type="radio" name="refurb_network_port" value="confirm"/>
-						&nbsp;Confirm&nbsp;
-					</label>
-					<label class="radio">
-						<input type="radio" name="refurb_network_port" value="disagree"/>
-						&nbsp;Disagree&nbsp;
-					</label>
-				</div></td>
+				<td>
+					<div class="form-inline">
+						{{ Form::label('confirm', 'Confirm') }}&nbsp;
+						{{ Form::radio('refurb_network_port', 'confirm') }} &nbsp;
+						{{ Form::label('disagree', 'Disagree') }}&nbsp;
+						{{ Form::radio('refurb_network_port', 'disagree') }} &nbsp;
+					</div>
+				</td>
 			</tr>
 			<tr>
 				<td>Restore Partition or Media?</td>
 				<td>{{{ $device->restore_partition_or_media }}}</td>
-				<td><div class="form-inline">
-					<label class="refurb_access_bios" id="refurb_restore_partition_or_media"></label>
-					<label class="radio">
-						<input type="radio" name="refurb_restore_partition_or_media" value="confirm"/>
-						&nbsp;Confirm&nbsp;
-					</label>
-					<label class="radio">
-						<input type="radio" name="refurb_restore_partition_or_media" value="disagree"/>
-						&nbsp;Disagree&nbsp;
-					</label>
-				</div></td>
+				<td>
+					<div class="form-inline">
+						{{ Form::label('confirm', 'Confirm') }}&nbsp;
+						{{ Form::radio('refurb_restore_partition_or_media', 'confirm') }} &nbsp;
+						{{ Form::label('disagree', 'Disagree') }}&nbsp;
+						{{ Form::radio('refurb_restore_partition_or_media', 'disagree') }} &nbsp;
+					</div>
+				</td>
 			</tr>
 			<tr>
 				<td>Optical Drive Type:</td>
 				<td>{{{ $device->optical_drive_type }}}</td>
-				<td><div class="form-inline">
-					<label class="refurb_access_bios" id="refurb_optical_drive_type"></label>
-					<label class="radio">
-						<input type="radio" name="refurb_optical_drive_type" value="confirm"/>
-						&nbsp;Confirm&nbsp;
-					</label>
-					<label class="radio">
-						<input type="radio" name="refurb_optical_drive_type" value="disagree"/>
-						&nbsp;Disagree&nbsp;
-					</label>
-				</div></td>
+				<td>
+					<div class="form-inline">
+						{{ Form::label('confirm', 'Confirm') }}&nbsp;
+						{{ Form::radio('refurb_optical_drive_type', 'confirm') }} &nbsp;
+						{{ Form::label('disagree', 'Disagree') }}&nbsp;
+						{{ Form::radio('refurb_optical_drive_type', 'disagree') }} &nbsp;
+					</div>
+				</td>
 			<tr>
 				<td>Optical Drive Works?</td>
 				<td>{{{ $device->optical_drive_works }}} </td>
-				<td><div class="form-inline">
-					<label class="refurb_access_bios" id="refurb_optical_drive_condition"></label>
-					<label class="radio">
-						<input type="radio" name="refurb_optical_drive_condition" value="confirm"/>
-						&nbsp;Confirm&nbsp;
-					</label>
-					<label class="radio">
-						<input type="radio" name="refurb_optical_drive_condition" value="disagree"/>
-						&nbsp;Disagree&nbsp;
-					</label>
-				</div></td>
+				<td>
+					<div class="form-inline">
+						{{ Form::label('confirm', 'Confirm') }}&nbsp;
+						{{ Form::radio('refurb_optical_drive_condition', 'confirm') }} &nbsp;
+						{{ Form::label('disagree', 'Disagree') }}&nbsp;
+						{{ Form::radio('refurb_optical_drive_condition', 'disagree') }} &nbsp;
+					</div>
+				</td>
 			</tr>
 			<tr>
 				<td>Internal WiFi?</td>
 				<td>{{{ $device->internal_wifi }}}</td>
-				<td><div class="form-inline">
-					<label class="refurb_access_bios" id="refurb_internal_wifi"></label>
-					<label class="radio">
-						<input type="radio" name="refurb_internal_wifi" value="confirm"/>
-						&nbsp;Confirm&nbsp;
-					</label>
-					<label class="radio">
-						<input type="radio" name="refurb_internal_wifi" value="disagree"/>
-						&nbsp;Disagree&nbsp;
-					</label>
-				</div></td>
+				<td>
+					<div class="form-inline">
+						{{ Form::label('confirm', 'Confirm') }}&nbsp;
+						{{ Form::radio('refurb_internal_wifi', 'confirm') }} &nbsp;
+						{{ Form::label('disagree', 'Disagree') }}&nbsp;
+						{{ Form::radio('refurb_internal_wifi', 'disagree') }} &nbsp;
+					</div>
+				</td>
 			</tr>
 			<tr>
 				<td>Internal Sound:</td>
 				<td>{{{ $device->internal_sound }}}</td>
-				<td><div class="form-inline">
-					<label class="refurb_access_bios" id="refurb_internal_sound"></label>
-					<label class="radio">
-						<input type="radio" name="refurb_internal_sound" value="confirm"/>
-						&nbsp;Confirm&nbsp;
-					</label>
-					<label class="radio">
-						<input type="radio" name="refurb_internal_sound" value="disagree"/>
-						&nbsp;Disagree&nbsp;
-					</label>
-				</div></td>
+				<td>
+					<div class="form-inline">
+						{{ Form::label('confirm', 'Confirm') }}&nbsp;
+						{{ Form::radio('refurb_internal_sound', 'confirm') }} &nbsp;
+						{{ Form::label('disagree', 'Disagree') }}&nbsp;
+						{{ Form::radio('refurb_internal_sound', 'disagree') }} &nbsp;
+					</div>
+				</td>
 			</tr>
 			<tr>
 				<td>Laptop Screen Size:</td>
 				<td>{{{ $device->laptop_screen_size }}}</td>
-				<td><div class="form-inline">
-					<label class="refurb_access_bios" id="refurb_laptop_screen_size"></label>
-					<label class="radio">
-						<input type="radio" name="refurb_laptop_screen_size" value="confirm"/>
-						&nbsp;Confirm&nbsp;
-					</label>
-					<label class="radio">
-						<input type="radio" name="refurb_laptop_screen_size" value="disagree"/>
-						&nbsp;Disagree&nbsp;
-					</label>
-				</div></td>
+				<td>
+					<div class="form-inline">
+						{{ Form::label('confirm', 'Confirm') }}&nbsp;
+						{{ Form::radio('refurb_laptop_screen_size', 'confirm') }} &nbsp;
+						{{ Form::label('disagree', 'Disagree') }}&nbsp;
+						{{ Form::radio('refurb_laptop_screen_size', 'disagree') }} &nbsp;
+					</div>
+				</td>
 			</tr>
 			<tr>
 				<td>Laptop Screen Condition:</td>
 				<td>{{{ $device->laptop_screen_condition }}}</td>
-				<td><div class="form-inline">
-					<label class="refurb_access_bios" id="refurb_laptop_screen_condition"></label>
-					<label class="radio">
-						<input type="radio" name="refurb_laptop_screen_condition" value="confirm"/>
-						&nbsp;Confirm&nbsp;
-					</label>
-					<label class="radio">
-						<input type="radio" name="refurb_laptop_screen_condition" value="disagree"/>
-						&nbsp;Disagree&nbsp;
-					</label>
-				</div></td>
+				<td>
+					<div class="form-inline">
+						{{ Form::label('confirm', 'Confirm') }}&nbsp;
+						{{ Form::radio('refurb_screen_condition', 'confirm') }} &nbsp;
+						{{ Form::label('disagree', 'Disagree') }}&nbsp;
+						{{ Form::radio('refurb_screen_condition', 'disagree') }} &nbsp;
+					</div>
+				</td>
 			</tr>
 			<tr>
 				<td>Laptop Power Charger:</td>
 				<td>{{{ $device->laptop_power_charger }}}</td>
-				<td><div class="form-inline">
-					<label class="refurb_access_bios" id="refurb_laptop_power_charger"></label>
-					<label class="radio">
-						<input type="radio" name="refurb_laptop_power_charger" value="confirm"/>
-						&nbsp;Confirm&nbsp;
-					</label>
-					<label class="radio">
-						<input type="radio" name="refurb_laptop_power_charger" value="disagree"/>
-						&nbsp;Disagree&nbsp;
-					</label>
-				</div></td>
+				<td>
+					<div class="form-inline">
+						{{ Form::label('confirm', 'Confirm') }}&nbsp;
+						{{ Form::radio('refurb_laptop_power_charger', 'confirm') }} &nbsp;
+						{{ Form::label('disagree', 'Disagree') }}&nbsp;
+						{{ Form::radio('refurb_laptop_power_charger', 'disagree') }} &nbsp;
+					</div>
+				</td>
 			</tr>
 			<tr>
 				<td>Is Power Connector Snug?</td>
 				<td>{{{ $device->power_connector_snug }}}</td>
-				<td><div class="form-inline">
-					<label class="refurb_access_bios" id="refurb_power_connector_snug"></label>
-					<label class="radio">
-						<input type="radio" name="refurb_power_connector_snug" value="confirm"/>
-						&nbsp;Confirm&nbsp;
-					</label>
-					<label class="radio">
-						<input type="radio" name="refurb_power_connector_snug" value="disagree"/>
-						&nbsp;Disagree&nbsp;
-					</label>
-				</div></td>
+				<td>
+					<div class="form-inline">
+						{{ Form::label('confirm', 'Confirm') }}&nbsp;
+						{{ Form::radio('refurb_machine_power_connector_snug', 'confirm') }} &nbsp;
+						{{ Form::label('disagree', 'Disagree') }}&nbsp;
+						{{ Form::radio('refurb_machine_power_connector_snug', 'disagree') }} &nbsp;
+					</div>
+				</td>
 			</tr>
 			<tr>
 				<td>Laptop Battery Inlcuded?</td>
 				<td>{{{ $device->laptop_battery }}}</td>
-				<td><div class="form-inline">
-					<label class="refurb_access_bios" id="refurb_laptop_battery_condition"></label>
-					<label class="radio">
-						<input type="radio" name="refurb_laptop_battery_condition" value="confirm"/>
-						&nbsp;Confirm&nbsp;
-					</label>
-					<label class="radio">
-						<input type="radio" name="refurb_laptop_battery_condition" value="disagree"/>
-						&nbsp;Disagree&nbsp;
-					</label>
-				</div></td>
+				<td>
+					<div class="form-inline">
+						{{ Form::label('confirm', 'Confirm') }}&nbsp;
+						{{ Form::radio('refurb_laptop_battery_condition', 'confirm') }} &nbsp;
+						{{ Form::label('disagree', 'Disagree') }}&nbsp;
+						{{ Form::radio('refurb_laptop_battery_condition', 'disagree') }} &nbsp;
+					</div>
+				</td>
 			</tr>
 			<tr>
 				<td>Does Keyboard Need Replacement?</td>
 				<td>{{{ $device->keyboard_condition }}}</td>
-				<td><div class="form-inline">
-					<label class="refurb_access_bios" id="refurb_keyboard_condition"></label>
-					<label class="radio">
-						<input type="radio" name="refurb_keyboard_condition" value="confirm"/>
-						&nbsp;Confirm&nbsp;
-					</label>
-					<label class="radio">
-						<input type="radio" name="refurb_keyboard_condition" value="disagree"/>
-						&nbsp;Disagree&nbsp;
-					</label>
-				</div></td>
+				<td>
+					<div class="form-inline">
+						{{ Form::label('confirm', 'Confirm') }}&nbsp;
+						{{ Form::radio('refurb_keyboard_condition', 'confirm') }} &nbsp;
+						{{ Form::label('disagree', 'Disagree') }}&nbsp;
+						{{ Form::radio('refurb_keyboard_condition', 'disagree') }} &nbsp;
+					</div>
+				</td>
 			</tr>
 			<tr>
 				<td>Are Fans Loud?:</td>
 				<td>{{{ $device->loud_fans }}}</td>
-				<td><div class="form-inline">
-					<label class="refurb_access_bios" id="refurb_loud_fans"></label>
-					<label class="radio">
-						<input type="radio" name="refurb_loud_fans" value="confirm"/>
-						&nbsp;Confirm&nbsp;
-					</label>
-					<label class="radio">
-						<input type="radio" name="refurb_loud_fans" value="disagree"/>
-						&nbsp;Disagree&nbsp;
-					</label>
-				</div></td>
+				<td>
+					<div class="form-inline">
+						{{ Form::label('confirm', 'Confirm') }}&nbsp;
+						{{ Form::radio('refurb_loud_fans', 'confirm') }} &nbsp;
+						{{ Form::label('disagree', 'Disagree') }}&nbsp;
+						{{ Form::radio('refurb_loud_fans', 'disagree') }} &nbsp;
+					</div>
+				</td>
 			</tr>
 			<tr>
 				<td>Grade of Machine</td>
 				<td>{{{ $device->acquisition_grade_abc }}}</td>
-				<td><div class="form-inline">
-					<label class="refurb_access_bios" id="refurb_grade_abc"></label>
-					<label class="radio">
-						<input type="radio" name="refurb_grade_abc" value="confirm"/>
-						&nbsp;Confirm&nbsp;
-					</label>
-					<label class="radio">
-						<input type="radio" name="refurb_grade_abc" value="disagree"/>
-						&nbsp;Disagree&nbsp;
-					</label>
-				</div></td>
+				<td>
+					<div class="form-inline">
+						{{ Form::label('confirm', 'Confirm') }}&nbsp;
+						{{ Form::radio('refurb_grade_abc', 'confirm') }} &nbsp;
+						{{ Form::label('disagree', 'Disagree') }}&nbsp;
+						{{ Form::radio('refurb_grade_abc', 'disagree') }} &nbsp;
+					</div>
+				</td>
 			</tr>
+		</tbody>
 	</table></center>
 </div>
 <div class="container">
@@ -425,15 +345,11 @@
 		<div class="col-md-10">
 			<div class="well">
 				<div class="form-inline">
-					<label class="refurb_access_bios" id="refurb_test_bios_battery">Test Bios Battery Results? &nbsp; </label>
-					<label class="radio">
-						<input type="radio" name="refurb_test_bios_battery" value="pass"/>
-						&nbsp;Pass&nbsp;
-					</label>
-					<label class="radio">
-						<input type="radio" name="refurb_test_bios_battery" value="fail"/>
-						&nbsp;Fail&nbsp;
-					</label>
+					<p>Bios Battery Test: &nbsp;
+					{{ Form::label('pass', 'Pass') }}&nbsp;
+					{{ Form::radio('refurb_test_bios_battery', 'pass') }} &nbsp;
+					{{ Form::label('fail', 'Fail') }}&nbsp;
+					{{ Form::radio('refurb_test_bios_battery', 'fail') }} &nbsp;</p>
 				</div>
 				<hr>
 				<label for="exampleInputEmail1">Refurbish Status</label>
@@ -447,54 +363,70 @@
 				<br>
 				<div class="well form-horizontal">
 			  		<div class="form-group">
-						<label for="replacement_part_1" class="col-sm-2 control-label">OS License Type</label>
+			  			<div class="col-sm-2 control-label">
+							{{ Form::label('replacement_part1', 'OS License Type') }}
+						</div>
 						<div class="col-sm-10">
-				  		<input name="replacement_part_1" type="text" class="form-control" id="inputOStype" placeholder="OS License Type"/>
+				  			{{ Form::text('replacement_part1', null, array('class' => 'form-control')) }}
 						</div>
 			  		</div>
 			  		<div class="form-group">
-						<label for="replacement_part_1_cost" class="col-sm-2 control-label">OS License Cost</label>
+						<div class="col-sm-2 control-label">
+							{{ Form::label('replacement_part1_cost', 'OS License Cost') }}
+						</div>
 						<div class="col-sm-10">
-				  		<input name="replacement_part_1_cost" id="replacement_part_1_cost" type="text" class="form-control" id="inputOScost" placeholder="OS License Cost"/>
+				  			{{ Form::text('replacement_part1_cost', null, array('class' => 'form-control', 'id' => 'replacement_part_1_cost')) }}
 						</div>
 			  		</div>
 			  		<hr>
 			  		<div class="form-group">
-						<label for="replacement_part_2" class="col-sm-2 control-label">Additional Part</label>
+						<div class="col-sm-2 control-label">
+							{{ Form::label('replacement_part2', 'Additional Part') }}
+						</div>
 						<div class="col-sm-10">
-				  		<input name="replacement_part_2" type="text" class="form-control" id="inputOStype" placeholder="Additional Part"/>
+				  			{{ Form::text('replacement_part2', null, array('class' => 'form-control')) }}
 						</div>
 			  		</div>
 			  		<div class="form-group">
-						<label for="replacement_part_2_cost" class="col-sm-2 control-label">Part Cost</label>
-						<div class="col-sm-10">
-				  		<input name="replacement_part_2_cost" id="replacement_part_2_cost" type="text" class="form-control" id="inputOScost" placeholder="Part cost"/>
+						<div class="col-sm-2 control-label">
+							{{ Form::label('replacement_part2_cost', 'OS License Cost') }}
 						</div>
-			  		</div>
-			  		<br>
-			  		<div class="form-group">
-						<label for="replacement_part_3" class="col-sm-2 control-label">Additional Part</label>
 						<div class="col-sm-10">
-				  		<input name="replacement_part_3" type="text" class="form-control" id="inputOStype" placeholder="Additional Part"/>
-						</div>
-			  		</div>
-			  		<div class="form-group">
-						<label for="replacement_part_3_cost" class="col-sm-2 control-label">Part Cost</label>
-						<div class="col-sm-10">
-				  		<input name="replacement_part_3_cost" id="replacement_part_3_cost" type="text" class="form-control" id="inputOScost" placeholder="Part Cost"/>
+				  			{{ Form::text('replacement_part2_cost', null, array('class' => 'form-control', 'id' => 'replacement_part_2_cost')) }}
 						</div>
 			  		</div>
 			  		<br>
 			  		<div class="form-group">
-						<label for="replacement_part_4" class="col-sm-2 control-label">Additional Part</label>
+						<div class="col-sm-2 control-label">
+							{{ Form::label('replacement_part3', 'Additional Part') }}
+						</div>
 						<div class="col-sm-10">
-				  		<input name="replacement_part_4" type="text" class="form-control" id="inputOStype" placeholder="Additional Part"/>
+				  			{{ Form::text('replacement_part3', null, array('class' => 'form-control')) }}
 						</div>
 			  		</div>
 			  		<div class="form-group">
-						<label for="replacement_part_4_cost" class="col-sm-2 control-label">Part Cost</label>
+						<div class="col-sm-2 control-label">
+							{{ Form::label('replacement_part3_cost', 'OS License Cost') }}
+						</div>
 						<div class="col-sm-10">
-				  		<input name="replacement_part_4_cost" id="replacement_part_4_cost" type="text" class="form-control" id="inputOScost" placeholder="Part Cost"/>
+				  			{{ Form::text('replacement_part3_cost', null, array('class' => 'form-control', 'id' => 'replacement_part_3_cost')) }}
+						</div>
+			  		</div>
+			  		<br>
+			  		<div class="form-group">
+						<div class="col-sm-2 control-label">
+							{{ Form::label('replacement_part4', 'Additional Part') }}
+						</div>
+						<div class="col-sm-10">
+				  			{{ Form::text('replacement_part4', null, array('class' => 'form-control')) }}
+						</div>
+			  		</div>
+			  		<div class="form-group">
+						<div class="col-sm-2 control-label">
+							{{ Form::label('replacement_part4_cost', 'OS License Cost') }}
+						</div>
+						<div class="col-sm-10">
+				  			{{ Form::text('replacement_part4_cost', null, array('class' => 'form-control', 'id' => 'replacement_part_4_cost')) }}
 						</div>
 			  		</div>
 			  		<hr>
@@ -503,9 +435,8 @@
 			  		<h4 id="total_cost" name="total_cost"> Total Cost: 0 </h4>
 
 				</div>
-			<label for="refurb-comments">Refurbish Technician Comments:</label>	
-			<textarea name="refurb_comments" id="refurb-comments" class="form-control" rows="3"></textarea>
-		
+			{{ Form::label('refurbisher_comments', 'Refurbish Technician Comments') }}
+			{{ Form::textarea('refurbisher_comments', null, array('class' => 'form-control', 'rows' => '3')) }}
 			<hr>
 
 			<!-- 
@@ -515,11 +446,9 @@
 		  		<input type="text" name="refurb_cost" id="refurb_cost" class="form-control">
 		  		<span class="input-group-addon">.00</span>
 			</div> -->
-
-
-			<a href="{{ action('DevicesController@update', $device->id) }}">
-			<button type="button" class="btn btn-primary btn-lg btn-block">Submit Refurbish</button>
-			</a>
+			<input type="hidden" name="total_cost" id="totalCost">
+			<input type="hidden" name="refurb_cost" id="refurbishCost">
+			<button type="submit" class="btn btn-primary btn-lg btn-block">Submit Refurbish</button>
 			{{ Form::close() }}
 			<br>
 			<br>
@@ -548,10 +477,8 @@
 	var part3Cost = 0;
 	var part4Cost = 0;
 
-	$('input').on('change', function() {
-
-		console.log("function run");
-
+	function calculate() {
+		
 		acquisitionCost = parseInt($('#acquisition_cost').data('price')); 	
 
 		if ($.isNumeric($('#replacement_part_1_cost').val()))
@@ -577,15 +504,18 @@
 		refurbCost = (part1Cost + part2Cost + part3Cost + part4Cost);
 		totalCost = acquisitionCost + refurbCost;
 
-		$('#refurbish_cost').attr('value', refurbCost);	
+		$('#refurbishCost').attr('value', refurbCost);	
 
-		$('#total_cost').attr('value', totalCost);
+		$('#totalCost').attr('value', totalCost);
 
 		$('#refurbish_cost').html( "Refurbish Cost: " + refurbCost);
 
-		$('#total_cost').html( "Total Cost: " + totalCost);
-		
-	});
+		$('#total_cost').html( "Total Cost: " + totalCost);		
+	}
+
+	calculate();
+
+	$('input').on('change', calculate);
 
 </script>
 
