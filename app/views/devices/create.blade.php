@@ -235,7 +235,7 @@
 				<div class="form-inline">
 					<label class="pcmci_slot_condition" id="pcmci_slot">PCMCI slot good? &nbsp;</label>
 					<label class="radio">
-						<input type="radio" name="pcmci_slot" value="good"/>
+						<input type="radio" name="pcmcia_slot" value="good"/>
 						Good&nbsp;
 					</label>
 					<label class="radio">
