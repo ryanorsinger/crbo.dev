@@ -1,4 +1,5 @@
 <?php
+Illuminate\Database\Eloquent\ModelNotFoundException;
 
 /*
 |--------------------------------------------------------------------------
@@ -10,6 +11,7 @@
 | your classes in the "global" namespace without Composer updating.
 |
 */
+
 
 ClassLoader::addDirectories(array(
 
