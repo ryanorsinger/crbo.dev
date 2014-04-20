@@ -5,11 +5,7 @@
 @stop
 
 @section('top-script')
-<link rel="stylesheet" href="animate.min.css">
 <script>
-
-
-	$('#header-title').addClass('animated bounceInDown');
 
 
 </script>
@@ -58,5 +54,10 @@ h1 {
 @stop
 
 @section('bottom-script')
+<script>
+    $('document').ready(function() {
+
+
+</script>
 
 @stop

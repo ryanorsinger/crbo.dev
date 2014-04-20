@@ -66,9 +66,9 @@
 			</div>
 			<div class="well" id="manufacturer">
 				<div class="form-inline"><h4>Manufacturer:</h4>
-						<!-- <label class="radio">
-							<input type="radio" checked="checked" name="manufacturer" value="OEM" data-price="0"/>
-						OEM</label>&nbsp; -->
+						<label class="radio">
+							<input type="radio" checked="checked" name="manufacturer" value="0" data-price="0">
+						None</label>&nbsp;
 						@foreach($manufacturers as $manufacturer)	
 							<label class="radio"> 
 							<input type="radio" name="manufacturer" value="{{ $manufacturer->company }}" data-price="{{ $manufacturer->price }}"/>
@@ -85,9 +85,9 @@
 			</div>
 			<div class="well" id="cpus">
 				<div class="form-inline"><h4>Processor:</h4>
-					<!-- <label class="radio">
-						<input type="radio" checked="checked" name="cpu" value="1" data-price="0">
-					None</label><br> -->
+					<label class="radio">
+						<input type="radio" checked="checked" name="cpu" value="0" data-price="0">
+					None</label><br>
 					@foreach($cpus as $cpu)
 						<label class="radio">
 						<input type="radio" name="cpu" value="{{ $cpu->id }}" data-price="{{ $cpu->price }}"/>
@@ -101,9 +101,9 @@
 			</div>
 			<div class="well" id="hdds">
 				<div class="form-inline"><h4>Hard Drive:</h4>
-					<!-- <label class="radio">
-						<input type="radio" checked="checked" name="hdd" value="1" data-price="0">
-					None</label><br> -->
+					<label class="radio">
+						<input type="radio" checked="checked" name="hdd" value="0" data-price="0">
+					None</label><br>
 					@foreach($hdds as $hdd)
 						<label class="radio">
 						<input type="radio" name="hdd" value="{{ $hdd->id }}" data-price="{{ $hdd->price }}"/>
@@ -116,9 +116,9 @@
 			</div>
 			<div class="well" id="rams">
 				<div class="form-inline"><h4>Memory:</h4>
-					<!-- <label class="radio">
+					<label class="radio">
 						<input type="radio" checked="checked" name="ram" value="0" data-price="0">
-					None</label><br> -->
+					None</label><br>
 					@foreach($rams as $ram)
 						<label class="radio">
 						<input type="radio" name="ram" value="{{ $ram->id }}" data-price="{{ $ram->price }}"/>
@@ -462,12 +462,29 @@
 			</div>
 			<input type="hidden" name="high_price" id="disabledInput">
 		<br>
-		
-		<button type="submit" class="btn btn-primary btn-lg btn-block">Add Device to Database</button>
-		{{ Form::close() }}
+		<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Confirm Buy-Back</button>
 		</div>
 
-
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		<button type="submit" class="btn btn-primary btn-lg btn-block">Add Device to Database</button>
+		{{ Form::close() }}
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
 
 	
 	</div>
@@ -476,6 +493,7 @@
 	</div>
 	
 	
+	<!-- <button type="submit" class="btn btn-default">Add Device </button>	 -->
 </div>
 </div>
 </div>

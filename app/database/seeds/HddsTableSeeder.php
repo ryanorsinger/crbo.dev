@@ -6,6 +6,13 @@ class HddsTableSeeder extends Seeder {
 	{
 		DB::table('hdds')->delete();
 
+                $hdd = new Hdd();
+                $hdd->form_factor = 'None';
+                $hdd->interface = '';
+                $hdd->capacity = '';                
+                $hdd->price = 0;
+                $hdd->save();
+
         	$hdd = new Hdd();
                 $hdd->form_factor = '3.5';
                 $hdd->interface = 'IDE';

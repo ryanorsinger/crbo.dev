@@ -6,6 +6,20 @@ class RamsTableSeeder extends Seeder {
 	{
 		DB::table('rams')->delete();
 
+                $ram = new Ram();
+                $ram->type = 'None';
+                $ram->speed = NULL;
+                $ram->size = NULL;                
+                $ram->price = 0;
+                $ram->save();
+
+                $ram = new Ram();
+                $ram->type = 'DDR1';
+                $ram->speed = 'PC3200';
+                $ram->size = '512mb';                
+                $ram->price = 1;
+                $ram->save();
+
         	$ram = new Ram();
                 $ram->type = 'DDR1';
                 $ram->speed = 'PC3200';

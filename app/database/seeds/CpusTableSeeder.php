@@ -7,6 +7,22 @@ class CpusTableSeeder extends Seeder {
 		DB::table('cpus')->delete();
 
         	$cpu = new Cpu();
+                $cpu->make = 'None';
+                $cpu->model = NULL;
+                $cpu->number_of_cores = NULL;
+                $cpu->speed = NULL;
+                $cpu->price = 0;
+                $cpu->save();
+
+                $cpu = new Cpu();
+                $cpu->make = 'AMD';
+                $cpu->model = 'Sempron';
+                $cpu->number_of_cores = '1';
+                $cpu->speed = '3000+';
+                $cpu->price = 5;
+                $cpu->save();
+
+                $cpu = new Cpu();
                 $cpu->make = 'AMD';
                 $cpu->model = 'Sempron';
                 $cpu->number_of_cores = '1';

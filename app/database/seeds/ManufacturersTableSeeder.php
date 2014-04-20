@@ -7,6 +7,11 @@ class ManufacturersTableSeeder extends Seeder {
 		DB::table('manufacturers')->delete();
 
         	$manufacturer = new Manufacturer();
+                $manufacturer->company = 'OEM';
+                $manufacturer->price = 0;
+                $manufacturer->save();
+
+                $manufacturer = new Manufacturer();
                 $manufacturer->company = 'Dell';
                 $manufacturer->price = 5;
                 $manufacturer->save();
