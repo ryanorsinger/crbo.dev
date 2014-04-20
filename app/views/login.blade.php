@@ -4,20 +4,40 @@
 <title>210Geeks Login</title>
 @stop
 
+@section('top-script')
+<link rel="stylesheet" href="animate.min.css">
+<script>
+
+
+	$('#header-title').addClass('animated bounceInDown');
+
+
+</script>
+@stop
+
 @section('style')
 
 <style>
 #box {
 	width: 450px;
 }
+
+h1 {
+	font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+	}
+
+
 </style>
 @stop
 
 @section('content')
+<h1 id="crbo_title">C&nbsp;R&nbsp;B&nbsp;O&nbsp;</h1>
 <div class="container-fluid" id="box">
-<h1><center>Computer Refurbisher's Back Office</center></h1>
+<h1 id="header-title"><center>Computer Refurbisher's Back Office</center></h1>
+
 <br>
 <br>
+	
 	<div>
 		{{ Form::open(array('action' => 'HomeController@doLogin', 'method' => 'POST')) }}
 		
@@ -34,5 +54,9 @@
 	</div>
 </div>
 
+
+@stop
+
+@section('bottom-script')
 
 @stop
