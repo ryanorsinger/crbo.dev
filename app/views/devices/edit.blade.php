@@ -389,7 +389,7 @@
 			  		</div>
 			  		<div class="form-group">
 						<div class="col-sm-2 control-label">
-							{{ Form::label('replacement_part2_cost', 'OS License Cost') }}
+							{{ Form::label('replacement_part2_cost', 'Part Cost') }}
 						</div>
 						<div class="col-sm-10">
 				  			{{ Form::text('replacement_part2_cost', null, array('class' => 'form-control', 'id' => 'replacement_part_2_cost')) }}
@@ -406,7 +406,7 @@
 			  		</div>
 			  		<div class="form-group">
 						<div class="col-sm-2 control-label">
-							{{ Form::label('replacement_part3_cost', 'OS License Cost') }}
+							{{ Form::label('replacement_part3_cost', 'Part Cost') }}
 						</div>
 						<div class="col-sm-10">
 				  			{{ Form::text('replacement_part3_cost', null, array('class' => 'form-control', 'id' => 'replacement_part_3_cost')) }}
@@ -423,7 +423,7 @@
 			  		</div>
 			  		<div class="form-group">
 						<div class="col-sm-2 control-label">
-							{{ Form::label('replacement_part4_cost', 'OS License Cost') }}
+							{{ Form::label('replacement_part4_cost', 'Part Cost') }}
 						</div>
 						<div class="col-sm-10">
 				  			{{ Form::text('replacement_part4_cost', null, array('class' => 'form-control', 'id' => 'replacement_part_4_cost')) }}
