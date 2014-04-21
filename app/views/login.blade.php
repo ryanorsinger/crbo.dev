@@ -27,8 +27,8 @@ h1 {
 @stop
 
 @section('content')
-<h1 id="crbo_title">C&nbsp;R&nbsp;B&nbsp;O&nbsp;</h1>
 <div class="container-fluid" id="box">
+<h1 id="crbo_title"><center>C&nbsp;R&nbsp;B&nbsp;O&nbsp;</h1></center>
 <h1 id="header-title"><center>Computer Refurbisher's Back Office</center></h1>
 
 <br>
@@ -39,11 +39,11 @@ h1 {
 		
 		<div class="form-group">
 			{{ Form::label('username', 'Username') }}
-			{{ Form::text('username', null, array('class' => 'form-control')) }}
+			{{ Form::text('username', null, array('class' => 'form-control', 'placeholder' => 'demo username is demo')) }}
 		</div>
 		<div class="form-group">
 			{{ Form::label('password', 'Password') }}
-			{{ Form::password('password', array('class' => 'form-control')) }}
+			{{ Form::password('password', array('class' => 'form-control', 'placeholder' => 'demo password is demo')) }}
 		</div>
 		<button class="btn btn-success" type="submit">Submit</button>
 		{{ Form::close() }}

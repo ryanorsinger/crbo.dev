@@ -55,7 +55,6 @@
 		  <!-- Collect the nav links, forms, and other content for toggling -->
 		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav" id="user-display">
-
 			  <!--- Show username if logged in -->
 			  @if (Auth::check())
 			  <li>
@@ -64,7 +63,8 @@
 			  @endif
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-			  
+
+
 			  <!--- Navbar links for Admin -->
 			  @if (Auth::check() && Auth::user()->role == "admin")
 			  <li>
